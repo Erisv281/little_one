@@ -1,0 +1,1662 @@
+fileFormatVersion: 2
+guid: b8130de85846f32489d6effda0b3970c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2148362428038106528
+    second: Pure snow_0
+  - first:
+      213: -8988422892969339088
+    second: Pure snow_1
+  - first:
+      213: -5095107289748434822
+    second: Pure snow_2
+  - first:
+      213: 2003361916834718589
+    second: Pure snow_3
+  - first:
+      213: 6844822340402236506
+    second: Pure snow_4
+  - first:
+      213: -1309863666975418599
+    second: Pure snow_5
+  - first:
+      213: 858754426438619397
+    second: Pure snow_6
+  - first:
+      213: -2713129997803148044
+    second: Pure snow_7
+  - first:
+      213: -5107500713215932073
+    second: Pure snow_8
+  - first:
+      213: 2089173284493623858
+    second: Pure snow_9
+  - first:
+      213: -2343755792043227476
+    second: Pure snow_10
+  - first:
+      213: -70176194674649949
+    second: Pure snow_11
+  - first:
+      213: 2072068762927334376
+    second: Pure snow_12
+  - first:
+      213: -3045792198006322180
+    second: Pure snow_13
+  - first:
+      213: -7135629899685380876
+    second: Pure snow_14
+  - first:
+      213: -1472887956708075705
+    second: Pure snow_15
+  - first:
+      213: -5118882062936953681
+    second: Pure snow_16
+  - first:
+      213: -619596002845656962
+    second: Pure snow_17
+  - first:
+      213: 5805121090631965202
+    second: Pure snow_18
+  - first:
+      213: -4588788852625970963
+    second: Pure snow_19
+  - first:
+      213: 1111430257741823301
+    second: Pure snow_20
+  - first:
+      213: 1445530530445277301
+    second: Pure snow_21
+  - first:
+      213: 7065883687476499859
+    second: Pure snow_22
+  - first:
+      213: -8285556553940798566
+    second: Pure snow_23
+  - first:
+      213: 578067588514860055
+    second: Pure snow_24
+  - first:
+      213: 7169346437284755106
+    second: Pure snow_25
+  - first:
+      213: -4903657115012748709
+    second: Pure snow_26
+  - first:
+      213: 6337389261966907329
+    second: Pure snow_27
+  - first:
+      213: 614703534029045816
+    second: Pure snow_28
+  - first:
+      213: -1804766495158245442
+    second: Pure snow_29
+  - first:
+      213: 704039975216337017
+    second: Pure snow_30
+  - first:
+      213: -1842734865999837996
+    second: Pure snow_31
+  - first:
+      213: 1438462429952053272
+    second: Pure snow_32
+  - first:
+      213: -4406403955917867104
+    second: Pure snow_33
+  - first:
+      213: -1561636480023253217
+    second: Pure snow_34
+  - first:
+      213: -5028068708501019841
+    second: Pure snow_35
+  - first:
+      213: -3646395767229272074
+    second: Pure snow_36
+  - first:
+      213: 7949422782286958106
+    second: Pure snow_37
+  - first:
+      213: 6607694828454434334
+    second: Pure snow_38
+  - first:
+      213: 7423809078803623477
+    second: Pure snow_39
+  - first:
+      213: -2951684879368809422
+    second: Pure snow_40
+  - first:
+      213: -7126829011312249209
+    second: Pure snow_41
+  - first:
+      213: 6468104381826239005
+    second: Pure snow_42
+  - first:
+      213: 7960554230825217270
+    second: Pure snow_43
+  - first:
+      213: -8414293596319322844
+    second: Pure snow_44
+  - first:
+      213: -447509422605992841
+    second: Pure snow_45
+  - first:
+      213: -3149636360395670818
+    second: Pure snow_46
+  - first:
+      213: 9138853915580241479
+    second: Pure snow_47
+  - first:
+      213: 2914708262027312206
+    second: Pure snow_48
+  - first:
+      213: 8618973554838320798
+    second: Pure snow_49
+  - first:
+      213: -1060551801824147821
+    second: Pure snow_50
+  - first:
+      213: -5455997014075763167
+    second: Pure snow_51
+  - first:
+      213: 7271304297062053551
+    second: Pure snow_52
+  - first:
+      213: 5260390340570264816
+    second: Pure snow_53
+  - first:
+      213: 4663111440726726252
+    second: Pure snow_54
+  - first:
+      213: -660130055957136526
+    second: Pure snow_55
+  - first:
+      213: -2172582497678871942
+    second: Pure snow_56
+  - first:
+      213: -272172474959910288
+    second: Pure snow_57
+  - first:
+      213: -4960733477133000993
+    second: Pure snow_58
+  - first:
+      213: -6746910622644698323
+    second: Pure snow_59
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 38
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pure snow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 632
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0623ef311cb7f22e0800000000000000
+      internalID: -2148362428038106528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 632
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037d2956005b24380800000000000000
+      internalID: -8988422892969339088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 632
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a709a0e3aea8a49b0800000000000000
+      internalID: -5095107289748434822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_3
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 632
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73aa719c0f5dcb10800000000000000
+      internalID: 2003361916834718589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_4
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 630
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c455637a1bdfe50800000000000000
+      internalID: 6844822340402236506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 630
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9175db15fed62dde0800000000000000
+      internalID: -1309863666975418599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_6
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 638
+        width: 28
+        height: 25
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5011b29d998eaeb00800000000000000
+      internalID: 858754426438619397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_7
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 638
+        width: 27
+        height: 23
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcac7b44a6095ad0800000000000000
+      internalID: -2713129997803148044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_8
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 638
+        width: 27
+        height: 28
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 759c5ba79238e19b0800000000000000
+      internalID: -5107500713215932073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_9
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 638
+        width: 28
+        height: 28
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2328a78880c3efc10800000000000000
+      internalID: 2089173284493623858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_10
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 638
+        width: 27
+        height: 28
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6cffe568e497fd0800000000000000
+      internalID: -2343755792043227476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_11
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 586
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a49abc6f1fa60ff0800000000000000
+      internalID: -70176194674649949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_12
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 586
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e38774cf8771cc10800000000000000
+      internalID: 2072068762927334376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_13
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 621
+        width: 8
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb4d2a122c2bb5d0800000000000000
+      internalID: -3045792198006322180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_14
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 600
+        width: 27
+        height: 27
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcb894996629fc90800000000000000
+      internalID: -7135629899685380876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_15
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 600
+        width: 28
+        height: 27
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747d67205304f8be0800000000000000
+      internalID: -1472887956708075705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_16
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 600
+        width: 27
+        height: 27
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac268f72e316f8b0800000000000000
+      internalID: -5118882062936953681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_17
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 609
+        width: 9
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78f12ad7b0c667f0800000000000000
+      internalID: -619596002845656962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_18
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 614
+        width: 8
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a1f3500eeef8050800000000000000
+      internalID: 5805121090631965202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_19
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 602
+        width: 18
+        height: 18
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8e4f9d9d85150c0800000000000000
+      internalID: -4588788852625970963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_20
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 602
+        width: 8
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d72594ee79c6f00800000000000000
+      internalID: 1111430257741823301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_21
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 8
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5783c23db5e8f0410800000000000000
+      internalID: 1445530530445277301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 555
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3959340f6cf0f0260800000000000000
+      internalID: 7065883687476499859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_23
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 555
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93f2f3863ac30d80800000000000000
+      internalID: -8285556553940798566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_24
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 555
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c4895b865b50800800000000000000
+      internalID: 578067588514860055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_25
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 554
+        width: 47
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6f1129992ae7360800000000000000
+      internalID: 7169346437284755106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_26
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 564
+        width: 12
+        height: 22
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a2957a5d5b2fbb0800000000000000
+      internalID: -4903657115012748709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_27
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 566
+        width: 18
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c799e2f4fde2f750800000000000000
+      internalID: 6337389261966907329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_28
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 566
+        width: 13
+        height: 23
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8308afb7b9dd78800800000000000000
+      internalID: 614703534029045816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_29
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 578
+        width: 23
+        height: 6
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7e0994f6e24f6e0800000000000000
+      internalID: -1804766495158245442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_30
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 554
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970d17690a045c900800000000000000
+      internalID: 704039975216337017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_31
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 564
+        width: 10
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d44ad0176a4d66e0800000000000000
+      internalID: -1842734865999837996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_32
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 564
+        width: 25
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810990075f176f310800000000000000
+      internalID: 1438462429952053272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a7b3aeb2fe49d2c0800000000000000
+      internalID: -4406403955917867104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_34
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 517
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f2ce335e3f35ae0800000000000000
+      internalID: -1561636480023253217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_35
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 478
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f332a834626b83ab0800000000000000
+      internalID: -5028068708501019841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_36
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 478
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffafcf7e56656dc0800000000000000
+      internalID: -3646395767229272074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_37
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 517
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e8c9317e5025e60800000000000000
+      internalID: 7949422782286958106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_38
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 517
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16563aff6f33bb50800000000000000
+      internalID: 6607694828454434334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 474
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ee86e260ba60760800000000000000
+      internalID: 7423809078803623477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_40
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 440
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234945cad328907d0800000000000000
+      internalID: -2951684879368809422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_41
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 440
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786f8c516ca681d90800000000000000
+      internalID: -7126829011312249209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_42
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 325
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a86e07aa253c950800000000000000
+      internalID: 6468104381826239005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_43
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 325
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fce19765e1997e60800000000000000
+      internalID: 7960554230825217270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_44
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 248
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dea831e8c6a3b80800000000000000
+      internalID: -8414293596319322844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_45
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 248
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77cfde71d802ac9f0800000000000000
+      internalID: -447509422605992841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_46
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 248
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda36feea6e3a44d0800000000000000
+      internalID: -3149636360395670818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_47
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 170
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746195c673bb3de70800000000000000
+      internalID: 9138853915580241479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_48
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 171
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4cb806b8bf137820800000000000000
+      internalID: 2914708262027312206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_49
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 171
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96bf9868cebc9770800000000000000
+      internalID: 8618973554838320798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_50
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 171
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3960f5a51c92841f0800000000000000
+      internalID: -1060551801824147821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_51
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 171
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1261c607f976844b0800000000000000
+      internalID: -5455997014075763167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_52
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 170
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6b720bbbcd8e460800000000000000
+      internalID: 7271304297062053551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_53
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 16
+        width: 154
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4369dd429a00940800000000000000
+      internalID: 5260390340570264816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_54
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 94
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66939c2623b6b040800000000000000
+      internalID: 4663111440726726252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_55
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 94
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bbd1d263fb6d6f0800000000000000
+      internalID: -660130055957136526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_56
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 94
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72be9caabf69d1e0800000000000000
+      internalID: -2172582497678871942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_57
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 16
+        width: 116
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a2068739c093cf0800000000000000
+      internalID: -272172474959910288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_58
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 17
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde59168f2fe72bb0800000000000000
+      internalID: -4960733477133000993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_59
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 170
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2304fd09882e52a0800000000000000
+      internalID: -6746910622644698323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pure snow_60
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 463
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f159abbd0b9f61499829c7ef35a0c20
+      internalID: 801304279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Pure snow_0: -2148362428038106528
+      Pure snow_1: -8988422892969339088
+      Pure snow_10: -2343755792043227476
+      Pure snow_11: -70176194674649949
+      Pure snow_12: 2072068762927334376
+      Pure snow_13: -3045792198006322180
+      Pure snow_14: -7135629899685380876
+      Pure snow_15: -1472887956708075705
+      Pure snow_16: -5118882062936953681
+      Pure snow_17: -619596002845656962
+      Pure snow_18: 5805121090631965202
+      Pure snow_19: -4588788852625970963
+      Pure snow_2: -5095107289748434822
+      Pure snow_20: 1111430257741823301
+      Pure snow_21: 1445530530445277301
+      Pure snow_22: 7065883687476499859
+      Pure snow_23: -8285556553940798566
+      Pure snow_24: 578067588514860055
+      Pure snow_25: 7169346437284755106
+      Pure snow_26: -4903657115012748709
+      Pure snow_27: 6337389261966907329
+      Pure snow_28: 614703534029045816
+      Pure snow_29: -1804766495158245442
+      Pure snow_3: 2003361916834718589
+      Pure snow_30: 704039975216337017
+      Pure snow_31: -1842734865999837996
+      Pure snow_32: 1438462429952053272
+      Pure snow_33: -4406403955917867104
+      Pure snow_34: -1561636480023253217
+      Pure snow_35: -5028068708501019841
+      Pure snow_36: -3646395767229272074
+      Pure snow_37: 7949422782286958106
+      Pure snow_38: 6607694828454434334
+      Pure snow_39: 7423809078803623477
+      Pure snow_4: 6844822340402236506
+      Pure snow_40: -2951684879368809422
+      Pure snow_41: -7126829011312249209
+      Pure snow_42: 6468104381826239005
+      Pure snow_43: 7960554230825217270
+      Pure snow_44: -8414293596319322844
+      Pure snow_45: -447509422605992841
+      Pure snow_46: -3149636360395670818
+      Pure snow_47: 9138853915580241479
+      Pure snow_48: 2914708262027312206
+      Pure snow_49: 8618973554838320798
+      Pure snow_5: -1309863666975418599
+      Pure snow_50: -1060551801824147821
+      Pure snow_51: -5455997014075763167
+      Pure snow_52: 7271304297062053551
+      Pure snow_53: 5260390340570264816
+      Pure snow_54: 4663111440726726252
+      Pure snow_55: -660130055957136526
+      Pure snow_56: -2172582497678871942
+      Pure snow_57: -272172474959910288
+      Pure snow_58: -4960733477133000993
+      Pure snow_59: -6746910622644698323
+      Pure snow_6: 858754426438619397
+      Pure snow_60: 801304279
+      Pure snow_7: -2713129997803148044
+      Pure snow_8: -5107500713215932073
+      Pure snow_9: 2089173284493623858
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

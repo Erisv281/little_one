@@ -1,0 +1,58 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FadeUI : MonoBehaviour
+{
+    CanvasGroup canvasGroup;
+    // Start is called before the first frame update
+    void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    IEnumerator FadeOut(float seconds)
+    {
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 1;
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= Time.unscaledDeltaTime / seconds;
+            yield return null;
+        }
+        yield return null;
+    }
+
+    IEnumerator FadeIn(float seconds)
+    {
+        canvasGroup.alpha = 1;
+        while (canvasGroup.alpha < 1)
+        {
+            canvasGroup.alpha -= Time.unscaledDeltaTime / seconds;
+            yield return null;
+        }
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+        yield return null;
+
+    }
+
+    public void FadeUIOut(float seconds)
+    {
+        StartCoroutine(FadeOut(seconds));
+
+    }
+
+    public void FadeUIIn(float seconds)
+    {
+        StartCoroutine(FadeIn(seconds));
+
+    }
+}

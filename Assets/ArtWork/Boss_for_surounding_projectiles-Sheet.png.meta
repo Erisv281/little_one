@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 04d3b303705993449a5dbc2765dff57f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 118
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334ec69a7c82752459598964787399b3
+      internalID: -1516008378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 127
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4a79d2e6219714fb9f807a4a70775b
+      internalID: 619069554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45369df4aa58f7f49b4b1cbc5bc0e6c5
+      internalID: 779516118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 8
+        width: 118
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7bf552c7bae5a74e834a90f1b398796
+      internalID: -1276168270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409b1ad425005ae43bcf3d7465b58134
+      internalID: -1927353553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 8
+        width: 106
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427351817dae5734c82141690688fa90
+      internalID: -1560182577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 128
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a13474b9e36b944497a34bd381147da
+      internalID: -232465536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 7
+        width: 133
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40d3bf75446f82946b6ac0a38372286e
+      internalID: 439220854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 128
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d2e24632418f94d8f9ddab63ffdcbb
+      internalID: -380789358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 8
+        width: 129
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07080d973328cb4bbaba7eda394d6da
+      internalID: -718941256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236f2046c6fb413429390b5f1331429a
+      internalID: 317452093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 7
+        width: 102
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2561226ef7b1b943a3770ca22ac4b33
+      internalID: 819190925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 128
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96ad5e2acd97c04c9191acbc2c28b28
+      internalID: 810844549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 7
+        width: 90
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce117317035361f438ebf8a6068f9abf
+      internalID: -736407885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 128
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef78dcd96163a145970b5b5216fe4a6
+      internalID: -224652210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 3
+        width: 104
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f63ec1668fcddd4192fc4b0c0253b2b
+      internalID: -2131925292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 1
+        width: 119
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125b76a608aa7e84f8ba2d4402060eb1
+      internalID: 864233518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 128
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e812cdd3e7a666428bbf237e633f88e
+      internalID: 420790695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 7
+        width: 108
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9ab7e8aa334eb4fa4cf7f6ac4ff566
+      internalID: 820016350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b42ae510a3c87d46a1673ab02132c37
+      internalID: 1422818822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 3
+        width: 89
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225500803d4e67b4b82fbbeca62f11ca
+      internalID: -985687892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29db54652e2ad874fa06d99e688ee854
+      internalID: 310301085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 11
+        width: 101
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d26b29f77ff539f4ba9514098d28d676
+      internalID: 2138417521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3374a4767d41268489b9af93920589a7
+      internalID: -641999791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 11
+        width: 100
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af2dbf07c7af08429a11f706a239c9a
+      internalID: 1841160170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 93
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8227b65f7e7bcb74fb4942ce13aa0ad7
+      internalID: 1600750173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 2033
+        y: 138
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b89e982459bae4b9dd40dec82cf7a3
+      internalID: 2090798198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 0
+        width: 114
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398070d44060c524c852435052109e39
+      internalID: -246316998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 2183
+        y: 128
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaedc32d5cd1754eb2f8d21c0be17d9
+      internalID: 1837143672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 10
+        width: 107
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ad94a5dc7c7fb4b8da8e9950175f92
+      internalID: 1594646867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 2353
+        y: 133
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a922c03fdc8a5347bee9a0a23bb3114
+      internalID: 1929405935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 2438
+        y: 133
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0ab44041dbea4418ee3ff1306fde2c
+      internalID: -1118437092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 8
+        width: 54
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9f1c13335db02418e0903de5a1fcf3
+      internalID: 1394960644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2513
+        y: 128
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2570f3aa23a8c40ab92c02c5f5c9a4
+      internalID: -1304162168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 113
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4385a70a82587654bbb8360a19a0bdc7
+      internalID: -1615217302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 68
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5511d1d5bd325bf4faa0ee1f05d1387e
+      internalID: 940149913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 63
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501e06039d6e9bc4ea072eabecc7f678
+      internalID: -845699248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 98
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aebe140c21acd942b05aabd90c785d7
+      internalID: -1361894305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 88
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50aae041cd60d10419f7e9a8fac8e337
+      internalID: -741384729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 83
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c078d1dee802c74181d96e05a085b8d
+      internalID: -713416302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 58
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 711fe22ecdec20a4f8813315477071ea
+      internalID: -1685118144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 83
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cecc023b01cad4eb3fd9bcfecb1b36
+      internalID: -1243648655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 23
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42829a0964f4ba54da8313e91564b7c8
+      internalID: 1810403530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 53
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d86217e74ee078e44bcfaddd0dd203ea
+      internalID: 288937577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 23
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad593188d7534b44b75a7c57bb4a923
+      internalID: 1430058294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 33
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b711738afcbf24d8bfc7cace4ec5cd
+      internalID: -1076474194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 2503
+        y: 18
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc64baf7c692da4187f7cec29a40a10
+      internalID: -187607313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_for_surounding_projectiles-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 3
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef5a7ebced5ad54a889f6cef53c64b7
+      internalID: -404942385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boss_for_surounding_projectiles-Sheet_0: -1516008378
+      Boss_for_surounding_projectiles-Sheet_1: 619069554
+      Boss_for_surounding_projectiles-Sheet_10: 317452093
+      Boss_for_surounding_projectiles-Sheet_11: 819190925
+      Boss_for_surounding_projectiles-Sheet_12: 810844549
+      Boss_for_surounding_projectiles-Sheet_13: -736407885
+      Boss_for_surounding_projectiles-Sheet_14: -224652210
+      Boss_for_surounding_projectiles-Sheet_15: -2131925292
+      Boss_for_surounding_projectiles-Sheet_16: 864233518
+      Boss_for_surounding_projectiles-Sheet_17: 420790695
+      Boss_for_surounding_projectiles-Sheet_18: 820016350
+      Boss_for_surounding_projectiles-Sheet_19: 1422818822
+      Boss_for_surounding_projectiles-Sheet_2: 779516118
+      Boss_for_surounding_projectiles-Sheet_20: -985687892
+      Boss_for_surounding_projectiles-Sheet_21: 310301085
+      Boss_for_surounding_projectiles-Sheet_22: 2138417521
+      Boss_for_surounding_projectiles-Sheet_23: -641999791
+      Boss_for_surounding_projectiles-Sheet_24: 1841160170
+      Boss_for_surounding_projectiles-Sheet_25: 1600750173
+      Boss_for_surounding_projectiles-Sheet_26: 2090798198
+      Boss_for_surounding_projectiles-Sheet_27: -246316998
+      Boss_for_surounding_projectiles-Sheet_28: 1837143672
+      Boss_for_surounding_projectiles-Sheet_29: 1594646867
+      Boss_for_surounding_projectiles-Sheet_3: -1276168270
+      Boss_for_surounding_projectiles-Sheet_30: 1929405935
+      Boss_for_surounding_projectiles-Sheet_31: -1118437092
+      Boss_for_surounding_projectiles-Sheet_32: 1394960644
+      Boss_for_surounding_projectiles-Sheet_33: -1304162168
+      Boss_for_surounding_projectiles-Sheet_34: -1615217302
+      Boss_for_surounding_projectiles-Sheet_35: 940149913
+      Boss_for_surounding_projectiles-Sheet_36: -845699248
+      Boss_for_surounding_projectiles-Sheet_37: -1361894305
+      Boss_for_surounding_projectiles-Sheet_38: -741384729
+      Boss_for_surounding_projectiles-Sheet_39: -713416302
+      Boss_for_surounding_projectiles-Sheet_4: -1927353553
+      Boss_for_surounding_projectiles-Sheet_40: -1685118144
+      Boss_for_surounding_projectiles-Sheet_41: -1243648655
+      Boss_for_surounding_projectiles-Sheet_42: 1810403530
+      Boss_for_surounding_projectiles-Sheet_43: 288937577
+      Boss_for_surounding_projectiles-Sheet_44: 1430058294
+      Boss_for_surounding_projectiles-Sheet_45: -1076474194
+      Boss_for_surounding_projectiles-Sheet_46: -187607313
+      Boss_for_surounding_projectiles-Sheet_47: -404942385
+      Boss_for_surounding_projectiles-Sheet_5: -1560182577
+      Boss_for_surounding_projectiles-Sheet_6: -232465536
+      Boss_for_surounding_projectiles-Sheet_7: 439220854
+      Boss_for_surounding_projectiles-Sheet_8: -380789358
+      Boss_for_surounding_projectiles-Sheet_9: -718941256
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
