@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9487b672f9cbaf94da34ed6f48fb93a7
+guid: 2c2840f942f86f3458962d3a7d0f6109
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bat-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 65
+        width: 85
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692911576f609854188ec557b8895e3d
+      internalID: -1914570690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 60
+        width: 85
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a377be83b54e9646813e893ef378691
+      internalID: 776231592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 55
+        width: 95
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981ba4416b3b06b4bbbe0b1274f247d9
+      internalID: 1325208427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 40
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d77947eb99775488516683d648d159
+      internalID: -933208933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bat-Sheet_0: -1914570690
+      Bat-Sheet_1: 776231592
+      Bat-Sheet_2: 1325208427
+      Bat-Sheet_3: -933208933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

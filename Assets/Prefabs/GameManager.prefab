@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   transitionedFromScene: 
+  respawnPoint: {x: 13.57, y: 4.559}
+  hud: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  fadeTime: 0.25

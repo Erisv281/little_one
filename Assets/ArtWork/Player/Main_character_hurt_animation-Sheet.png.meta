@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9487b672f9cbaf94da34ed6f48fb93a7
+guid: 7b32be2ca6cfcea4fa8850a0de955fef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Main_character_hurt_animation-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 20
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 671465bcd0c37874e8605e4b259ddd06
+      internalID: -319223209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_hurt_animation-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 20
+        width: 55
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ebbf9242911484eb9b22fc2b9dc8f3
+      internalID: 972446827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_hurt_animation-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 20
+        width: 55
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58ca8f9f0318294e963e2984141cb3e
+      internalID: 65989905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Main_character_hurt_animation-Sheet_0: -319223209
+      Main_character_hurt_animation-Sheet_1: 972446827
+      Main_character_hurt_animation-Sheet_2: 65989905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

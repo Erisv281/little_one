@@ -53,7 +53,7 @@ public class Melee : MonoBehaviour
         // Recoil the player when melee hit enemies
         if (enemies.Length > 0)
         {
-            GameManager.instance.player.setRecoilingDirection();
+            GameManager.instance.player.SetRecoilingDirection();
         }
     }
 

@@ -22,7 +22,7 @@ public class Spike : MonoBehaviour
 
     public void Attack()
     {
-        GameManager.instance.player.takeDamage(this.damage);
+        GameManager.instance.player.TakeDamage(this.damage);
     }
 
     protected void onGameStateChanged(GameState gameState)

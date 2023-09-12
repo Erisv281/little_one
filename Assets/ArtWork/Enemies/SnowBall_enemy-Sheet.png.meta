@@ -1,0 +1,501 @@
+fileFormatVersion: 2
+guid: 400093499a40cb94b96fb22b8f641b81
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18bce9f2a6828a8458b3a6df2901233c
+      internalID: 1411818932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3be0afe3edb8204980670096e4a4876
+      internalID: 1906774818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbaf0fef696c7c24aa53bfc6d9341c26
+      internalID: -923774610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd08e4765bae9084dae6c069a9b146f2
+      internalID: -1333584295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ea25e7608ae5142bf3fb64f6342bed
+      internalID: -1929862503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54245e9cdc2df6e40a68f8dbbfc5e6ab
+      internalID: 141602615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b1375a809d37647a4e03ccfa47bf7f
+      internalID: -899918114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b02361b2f2240c418750429cb22ea76
+      internalID: -167962990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c72d519f4bd7547985b202a6137dc0
+      internalID: -205970406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5dcda1dc36a9c84bad15ac53a1cb7f1
+      internalID: 1802305217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352e6e78d5266154a9f6f0e902485757
+      internalID: 1151182648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e76956becb124c2449a8d91fa8f43a87
+      internalID: 1113737284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 10
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f45511f968ca0341975c79b13308549
+      internalID: 2048581571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b412ecc80893eb48ac9585db702a7b9
+      internalID: -1306538492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e9f6e3b10cbb24fad5f46613d5401f
+      internalID: -133272096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1602516df6de0f645aa23b5e0606574d
+      internalID: 1848406099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SnowBall_enemy-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 5
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d822255515a31da4d9752fc6382c6b51
+      internalID: 393893442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SnowBall_enemy-Sheet_0: 1411818932
+      SnowBall_enemy-Sheet_1: 1906774818
+      SnowBall_enemy-Sheet_10: 1151182648
+      SnowBall_enemy-Sheet_11: 1113737284
+      SnowBall_enemy-Sheet_12: 2048581571
+      SnowBall_enemy-Sheet_13: -1306538492
+      SnowBall_enemy-Sheet_14: -133272096
+      SnowBall_enemy-Sheet_15: 1848406099
+      SnowBall_enemy-Sheet_16: 393893442
+      SnowBall_enemy-Sheet_2: -923774610
+      SnowBall_enemy-Sheet_3: -1333584295
+      SnowBall_enemy-Sheet_4: -1929862503
+      SnowBall_enemy-Sheet_5: 141602615
+      SnowBall_enemy-Sheet_6: -899918114
+      SnowBall_enemy-Sheet_7: -167962990
+      SnowBall_enemy-Sheet_8: -205970406
+      SnowBall_enemy-Sheet_9: 1802305217
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

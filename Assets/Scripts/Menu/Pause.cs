@@ -12,7 +12,6 @@ public class Pause : MonoBehaviour
     private void Awake()
     {
         pauseMenu.SetActive(false);
-        print("False in awake");
     }
 
     private void Update()

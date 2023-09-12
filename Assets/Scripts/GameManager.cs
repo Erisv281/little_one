@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         instance.player.transform.position = respawnPoint;
         StartCoroutine(AnimationManager.instance.deactivateDeathScreen());
-        instance.player.respawned();
+        instance.player.Respawned();
     }
 
     //GameState

@@ -1,0 +1,589 @@
+fileFormatVersion: 2
+guid: 50be0d27afde2814cb8af49ce0e78a76
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 135
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eef12bf078434f43bf83a3b1c0532ea
+      internalID: -1616818372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 125
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb29aa973d96ec42b2f4172c35eb710
+      internalID: -1777321442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 130
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0c997dd9b38aa74d8c9a9c4cc89ee4c
+      internalID: -1523478342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 40
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2127de77ef580c74da8d0561c6430e7d
+      internalID: 1987229049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 40
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3933380fe4b173d469c394e35d802dd3
+      internalID: 1469969794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 125
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6acc817ada6ed48866e5ca447f041a
+      internalID: -1449610133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 30
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b0fc1a494e56945b2392b3d1184060
+      internalID: -843930530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 29
+        width: 62
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9627808eb3e64bc43aa8b26d5f2ab7fa
+      internalID: 1447757636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 120
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf5aa7768b65004aaa5d7590010f9ef
+      internalID: 49903692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 40
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3126f9acc7384d249820e55d80e6f201
+      internalID: 1545414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 110
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2ad7e58469f9e449195cbc377d3c30
+      internalID: 2053397998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 35
+        width: 60
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc19033e4ca96d945bdeb344033ad8e3
+      internalID: -720952295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 80
+        width: 30
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5483a80f7fdaa44bb24d1e3872ab03
+      internalID: 1035412683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1835
+        y: 85
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f16789b7d1bac4e888e37cc0fbb8ee
+      internalID: -1465364895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 80
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42817e7d82fde94e9e708cb962e39fd
+      internalID: 169529323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1825
+        y: 75
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec6402c88e7142459d93efe0688902f
+      internalID: -1658907502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 75
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd7f69566e63304a809329518687b2a
+      internalID: 655329297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 30
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a8cfda1529d5f4fb06f51578521d73
+      internalID: 1640851129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 45
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07451c5d8e1bc3e4294ad31b23bff114
+      internalID: 1419517392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 55
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ba7ee36cf417e47bb7234085555c9c
+      internalID: 1562562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main_character_dash_animation-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 35
+        width: 135
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5134d458c90300d468df8b6fcd7d5349
+      internalID: 889953983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Main_character_dash_animation-Sheet_0: -1616818372
+      Main_character_dash_animation-Sheet_1: -1777321442
+      Main_character_dash_animation-Sheet_10: 2053397998
+      Main_character_dash_animation-Sheet_11: -720952295
+      Main_character_dash_animation-Sheet_12: 1035412683
+      Main_character_dash_animation-Sheet_13: -1465364895
+      Main_character_dash_animation-Sheet_14: 169529323
+      Main_character_dash_animation-Sheet_15: -1658907502
+      Main_character_dash_animation-Sheet_16: 655329297
+      Main_character_dash_animation-Sheet_17: 1640851129
+      Main_character_dash_animation-Sheet_18: 1419517392
+      Main_character_dash_animation-Sheet_19: 1562562
+      Main_character_dash_animation-Sheet_2: -1523478342
+      Main_character_dash_animation-Sheet_20: 889953983
+      Main_character_dash_animation-Sheet_3: 1987229049
+      Main_character_dash_animation-Sheet_4: 1469969794
+      Main_character_dash_animation-Sheet_5: -1449610133
+      Main_character_dash_animation-Sheet_6: -843930530
+      Main_character_dash_animation-Sheet_7: 1447757636
+      Main_character_dash_animation-Sheet_8: 49903692
+      Main_character_dash_animation-Sheet_9: 1545414
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,6 +9,7 @@ public class Bow : MonoBehaviour
     public GameObject arrow;
     [SerializeField] private float attackTime = 0.5f;   // Time to next attack
     private float nextAttackTime = 0f;
+    [SerializeField] private Animator anim;
 
     void Awake()
     {
@@ -32,6 +33,9 @@ public class Bow : MonoBehaviour
 
     void Shoot()
     {
+        // Animation
+        anim.SetTrigger("BowAttack");
+
         // Bow shooting
         Instantiate(arrow, firePoint.position, firePoint.rotation);
     }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7990616657691180993}
   - component: {fileID: 8947367638234739983}
   - component: {fileID: 8870662117204523751}
-  - component: {fileID: 4975062521194895970}
   - component: {fileID: 595829467186606437}
+  - component: {fileID: -3692959651379477365}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -73,10 +73,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -938666351
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -353372278, guid: d425bdf17d6eeb4478836d134639c3f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &4975062521194895970
-BoxCollider2D:
+--- !u!114 &595829467186606437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503284103893894023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b699e12f4ff6f5479b68031b6ca3657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  arrowDamage: 1
+  RB: {fileID: 8870662117204523751}
+  hitForce: 1
+--- !u!60 &-3692959651379477365
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,28 +166,22 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.65, y: 0.35}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &595829467186606437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503284103893894023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b699e12f4ff6f5479b68031b6ca3657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  arrowDamage: 1
-  RB: {fileID: 8870662117204523751}
-  hitForce: 10
+  m_Points:
+    m_Paths:
+    - - {x: 0.235, y: 0.175}
+      - {x: -0.015, y: 0.175}
+      - {x: -0.285, y: 0.105}
+      - {x: -0.325, y: 0.065}
+      - {x: -0.325, y: -0.055}
+      - {x: -0.295, y: -0.125}
+      - {x: -0.074999996, y: -0.175}
+      - {x: 0.285, y: -0.175}
+      - {x: 0.325, y: -0.095}
+      - {x: 0.325, y: 0.13499999}
+  m_UseDelaunayMesh: 0

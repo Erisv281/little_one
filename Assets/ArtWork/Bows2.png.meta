@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9487b672f9cbaf94da34ed6f48fb93a7
+guid: d425bdf17d6eeb4478836d134639c3f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bows2_0
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 5
+        width: 40
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fb6f19e81919448abb67ea1ccf1bd1
+      internalID: 210962778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bows2_1
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 35
+        width: 65
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6367003e0e6af4c84d18e4bb3f2f6e
+      internalID: -353372278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +161,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bows2_0: 210962778
+      Bows2_1: -353372278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

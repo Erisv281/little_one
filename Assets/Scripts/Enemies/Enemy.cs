@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        GameManager.instance.player.takeDamage(this.damage);
+        GameManager.instance.player.TakeDamage(this.damage);
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)

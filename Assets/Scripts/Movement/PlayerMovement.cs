@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerStateList pstate;
     public Rigidbody2D RB { get; private set; }
     public PlayerData Data;
+    [SerializeField] private float timeBeforeDeathScreen;   // Time before death screen pops up
 
     // HUD delegates
     public delegate void OnHealthChanged();
@@ -102,10 +103,56 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        respawned();
+        Respawned();
     }
 
-    void timerHandler()
+    private void Update()
+    {
+        if (!pstate.isAlive || pstate.isEnteringCutscene)
+        {
+            return;
+        }
+        TimerHandler();
+        InputHandler();
+        CheckCollision();
+        CheckJump();
+        CheckSlide();
+        HandleGravity();
+        StartDash();
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!pstate.isAlive || pstate.isEnteringCutscene || pstate.isDashing)
+        {
+            return;
+        }
+
+        // Handle recoil 
+        CheckRecoil();
+
+        //Handle Run
+        if (pstate.isWallJumping)
+        {
+            Run(Data.wallJumpRunLerp);
+        }
+        else
+        {
+            Run(1);
+        }
+
+
+        // Handle Slide
+        if (pstate.isSliding)
+        {
+            Slide();
+        }
+
+    }
+
+
+    void TimerHandler()
     {
         // Decrease the timer variables 
         LastOnGroundTime -= Time.deltaTime;
@@ -115,15 +162,15 @@ public class PlayerMovement : MonoBehaviour
         LastPressedJumpTime -= Time.deltaTime;
     }
 
-    void inputHandler()
+    void InputHandler()
     {
-        // Handle WASD inputs 
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
 
         if (_moveInput.x != 0)
-            CheckDirectionToFace(_moveInput.x > 0);
-
+        {
+            CheckDirectionToFace(_moveInput.x > 0); // Turn player on horizontal direction
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnJumpInput();
@@ -133,15 +180,15 @@ public class PlayerMovement : MonoBehaviour
         {
             OnJumpUpInput();
         }
-
-        setFirepointAngle();
+        SetFirepointAngle();    // Set the firing angle on vertical direction
 
     }
 
     /// <summary>
     /// Rotate the Bow and Melee firepoint direction depending on which inputs are pressed. 
+    /// Facing directions: 'U' = UP, '-' = Horizontal, 'D' = DOWN
     /// </summary>
-    void setFirepointAngle()
+    void SetFirepointAngle()
     {
         if (_moveInput.y == 0 && faceVerticalDir == "U")
         {
@@ -183,75 +230,81 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void checkCollision()
+    void CheckCollision()
     {
         if (!pstate.isJumping)
         {
-            //Ground Check
-            if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && !pstate.isJumping) //checks if set box overlaps with ground
+            // Ground Check
+            if (IsGrounded())
             {
-                LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-                airJumpCounter = 0;
+                LastOnGroundTime = Data.coyoteTime; // Last on ground time to coyote time
+                airJumpCounter = 0; // Reset the double jump counter. 
             }
 
-            //Right Wall Check
-            if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && pstate.isFacingRight)
-                    || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !pstate.isFacingRight)) && !pstate.isWallJumping)
-                LastOnWallRightTime = Data.coyoteTime;
+            if (!pstate.isWallJumping)
+            {
+                // Right Wall Check
+                if (IsCollidingWallRight())
+                {
+                    LastOnWallRightTime = Data.coyoteTime;  // Set coyote time
+                }
 
-            //Right Wall Check
-            if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !pstate.isFacingRight)
-                || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && pstate.isFacingRight)) && !pstate.isWallJumping)
-                LastOnWallLeftTime = Data.coyoteTime;
-
-            //Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
+                // Left Wall Check
+                if (IsCollidingWallLeft())
+                {
+                    LastOnWallLeftTime = Data.coyoteTime;   // Set coyote time
+                }
+            }
             LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
         }
     }
 
-    void checkJump()
+    void CheckJump()
     {
         if (pstate.isDashing)
         {
             return;
         }
+
+        // If jumping and moving downwards, we're falling if not touching walls. 
         if (pstate.isJumping && RB.velocity.y <= 0)
         {
             pstate.isJumping = false;
-
             if (!pstate.isWallJumping)
+            {
                 _isJumpFalling = true;
+            }
         }
 
+        // If walljumping and walljumptime has exceeded, we're not walljumping anymore
         if (pstate.isWallJumping && Time.time - _wallJumpStartTime > Data.wallJumpTime)
         {
             pstate.isWallJumping = false;
         }
 
+        // If in the air and neither jump nor walljump, cannot jumpcut
         if (LastOnGroundTime > 0 && !pstate.isJumping && !pstate.isWallJumping)
         {
             _isJumpCut = false;
 
             if (!pstate.isJumping)
+            {
                 _isJumpFalling = false;
+            }
         }
 
-        //Jump
-        if (CanJump() && LastPressedJumpTime > 0)
+        // Jump
+        if (CanJump())
         {
-            pstate.isJumping = true;
-            pstate.isWallJumping = false;
-            _isJumpCut = false;
-            _isJumpFalling = false;
+            SetJumpSettings();
             Jump();
         }
         // Double jump
-        else if (!IsGrounded() && airJumpCounter < maxAirJumps && Input.GetButtonDown("Jump"))
+        else if (!IsGrounded() && CanDoubleJump() && Input.GetButtonDown("Jump"))
         {
-            pstate.isJumping = true;
+            SetJumpSettings();
             airJumpCounter++;
             Jump();
-
         }
 
         // Wall jump
@@ -263,54 +316,66 @@ public class PlayerMovement : MonoBehaviour
             _isJumpFalling = false;
             _wallJumpStartTime = Time.time;
             _lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
-
             WallJump(_lastWallJumpDir);
+        }
+
+        anim.SetBool("Jumping", pstate.isJumping && RB.velocity.y > 0);
+    }
+
+    void CheckSlide()
+    {
+        if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
+        {
+            pstate.isSliding = true;
+        }
+        else
+        {
+            pstate.isSliding = false;
         }
 
     }
 
-    void checkSlide()
+    /// <summary>
+    /// Handle gravity by some notices:
+    /// 1. When falling
+    /// 2. When holding DOWN
+    /// 3. When jump button released
+    /// 4. Jumping under some threshold
+    /// 5. Falling
+    /// 6. Default
+    /// </summary>
+    void HandleGravity()
     {
-        if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
-            pstate.isSliding = true;
-        else
-            pstate.isSliding = false;
-    }
-
-    void handleGravity()
-    {
-        //Higher gravity if we've released the jump input or are falling
+        // Higher gravity if we've released the jump input or are falling
         if (pstate.isSliding)
         {
             SetGravityScale(0);
         }
-        else if (RB.velocity.y < 0 && _moveInput.y < 0)
+        // Much higher gravity if holding down DOWN
+        else if (RB.velocity.y <= 0 && _moveInput.y < 0)
         {
-            //Much higher gravity if holding down
             SetGravityScale(Data.gravityScale * Data.fastFallGravityMult);
-            //Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-            RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFastFallSpeed));
+            SetMaxFallSpeed(Data.maxFastFallSpeed);
         }
+        // Higher gravity if jump button released
         else if (_isJumpCut)
         {
-            //Higher gravity if jump button released
             SetGravityScale(Data.gravityScale * Data.jumpCutGravityMult);
-            RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
+            SetMaxFallSpeed(Data.maxFallSpeed);
         }
         else if ((pstate.isJumping || pstate.isWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
         {
             SetGravityScale(Data.gravityScale * Data.jumpHangGravityMult);
         }
-        else if (RB.velocity.y < 0)
+        // Higher gravity if falling
+        else if (RB.velocity.y <= 0)
         {
-            //Higher gravity if falling
             SetGravityScale(Data.gravityScale * Data.fallGravityMult);
-            //Caps maximum fall speed, so when falling over large distances we don't accelerate to insanely high speeds
-            RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -Data.maxFallSpeed));
+            SetMaxFallSpeed(Data.maxFallSpeed);
         }
         else
         {
-            //Default gravity if standing on a platform or moving upwards
+            // Default gravity if standing on a platform or moving upwards
             SetGravityScale(Data.gravityScale);
         }
     }
@@ -335,8 +400,8 @@ public class PlayerMovement : MonoBehaviour
 
     void StartDash()
     {
-        //Pressing dash button and if we can dash
-        if (isTappingDash() && canDash && !pstate.isDashing)
+        // Pressing dash button and if we can dash
+        if (IsTappingDash() && canDash && !pstate.isDashing)
         {
             StartCoroutine(Dash());
             pstate.isDashing = true;
@@ -348,7 +413,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    bool isTappingDash()
+    /// <summary>
+    /// Return T if pressing the same direction twice within the interval [dashButtonCooldown]
+    /// </summary>
+    /// <returns></returns>
+    bool IsTappingDash()
     {
         float thisButtonDirection = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Horizontal"))
@@ -360,6 +429,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (dashButtonCount >= 2 && thisButtonDirection == latestButtonDirection)
                 {
+                    // Press dashbutton twice in the same direction
                     return true;
                 }
                 else
@@ -378,251 +448,22 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        if (!pstate.isAlive || pstate.isEnteringCutscene)
-        {
-            return;
-        }
-        print("Moving");
-
-        anim.SetBool("Jumping", !IsGrounded() && !pstate.isJumping);
-        timerHandler();
-        inputHandler();
-        checkCollision();
-        checkJump();
-        checkSlide();
-        handleGravity();
-        StartDash();
-
-    }
-
-    private void FixedUpdate()
-    {
-        if (!pstate.isAlive || pstate.isEnteringCutscene || pstate.isDashing)
-        {
-            return;
-        }
-
-        // Handle recoil 
-        Recoil();
-
-        //Handle Run
-        if (pstate.isWallJumping)
-            Run(Data.wallJumpRunLerp);
-        else
-            Run(1);
-
-        // Handle Slide
-        if (pstate.isSliding)
-            Slide();
-    }
-
-    public void OnJumpInput()
-    {
-        LastPressedJumpTime = Data.jumpInputBufferTime;
-    }
-
-    public void OnJumpUpInput()
-    {
-        if (CanJumpCut() || CanWallJumpCut())
-        {
-            _isJumpCut = true;
-        }
-    }
-
-
-    public void SetGravityScale(float scale)
-    {
-        RB.gravityScale = scale;
-    }
-
-
-    private void Run(float lerpAmount)
-    {
-        // Calculate the direction we want to move in and our desired velocity
-        float targetSpeed = _moveInput.x * Data.runMaxSpeed;
-        // We can reduce are control using Lerp() this smooths changes to are direction and speed
-        targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
-
-        float accelRate;
-
-        // Gets an acceleration value based on if we are accelerating (includes turning) 
-        // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
-        if (LastOnGroundTime > 0)
-            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
-        else
-            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
-
-
-        //Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
-        if ((pstate.isJumping || pstate.isWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
-        {
-            accelRate *= Data.jumpHangAccelerationMult;
-            targetSpeed *= Data.jumpHangMaxSpeedMult;
-        }
-
-
-
-        // We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
-        if (Data.doConserveMomentum && Mathf.Abs(RB.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
-        {
-            // Prevent any deceleration from happening, or in other words conserve are current momentum
-            // You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
-            accelRate = 0;
-        }
-
-        // Calculate difference between current velocity and desired velocity
-        float speedDif = targetSpeed - RB.velocity.x;
-        // Calculate force along x-axis to apply to thr player
-
-        float movement = speedDif * accelRate;
-
-        // Convert this to a vector and apply to rigidbody
-        RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        anim.SetBool("Walking", Mathf.Abs(RB.velocity.x) >= 0.1 && IsGrounded());
-
-        /*
-         * For those interested here is what AddForce() will do
-         * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
-         * Time.fixedDeltaTime is by default in Unity 0.02 seconds equal to 50 FixedUpdate() calls per second
-        */
-    }
-
-    private void Turn()
-    {
-        transform.Rotate(0f, 180, 0f);
-        pstate.isFacingRight = !pstate.isFacingRight;
-    }
-
-    private void Jump()
-    {
-        //Ensures we can't call Jump multiple times from one press
-        LastPressedJumpTime = 0;
-        LastOnGroundTime = 0;
-
-        //We increase the force applied if we are falling
-        //This means we'll always feel like we jump the same amount 
-        //(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
-        float force = Data.jumpForce;
-        if (RB.velocity.y < 0)
-        {
-            force -= RB.velocity.y;
-        }
-
-        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-    }
-
-    private void WallJump(int dir)
-    {
-        //Ensures we can't call Wall Jump multiple times from one press
-        LastPressedJumpTime = 0;
-        LastOnGroundTime = 0;
-        LastOnWallRightTime = 0;
-        LastOnWallLeftTime = 0;
-
-
-        Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
-        force.x *= dir; //apply force in opposite direction of wall
-
-        if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
-            force.x -= RB.velocity.x;
-
-        if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
-            force.y -= RB.velocity.y;
-
-        //Unlike in the run we want to use the Impulse mode.
-        //The default mode will apply are force instantly ignoring masss
-        RB.AddForce(force, ForceMode2D.Impulse);
-    }
-
-
-    private void Slide()
-    {
-        //Works the same as the Run but only in the y-axis
-        //THis seems to work fine, buit maybe you'll find a better way to implement a slide into this system
-        float speedDif = Data.slideSpeed - RB.velocity.y;
-        float movement = speedDif * Data.slideAccel;
-        //So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
-        //The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
-        movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
-
-        RB.AddForce(movement * Vector2.up);
-    }
-
-
-
-
-    public void CheckDirectionToFace(bool isMovingRight)
-    {
-        if (isMovingRight != pstate.isFacingRight)
-            Turn();
-    }
-
-    private bool CanJump()
-    {
-        return LastOnGroundTime > 0 && !pstate.isJumping;
-    }
-
-    private bool CanWallJump()
-    {
-        return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!pstate.isWallJumping ||
-             (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
-    }
-
     /// <summary>
-    /// If jumping and are moving upwards
+    /// Handle Recoiling player
     /// </summary>
-    /// <returns></returns>
-    private bool CanJumpCut()
-    {
-        return pstate.isJumping && RB.velocity.y > 0;
-    }
-
-    private bool CanWallJumpCut()
-    {
-        return pstate.isWallJumping && RB.velocity.y > 0;
-    }
-
-    public bool CanSlide()
-    {
-        if (LastOnWallTime > 0 && !pstate.isJumping && !pstate.isWallJumping && LastOnGroundTime <= 0)
-            return true;
-        else
-            return false;
-    }
-
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
-        Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
-    }
-
-
-    bool IsGrounded()
-    { // checks if set box overlaps with ground
-        if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    void Recoil()
+    void CheckRecoil()
     {
         // Recoil Horizontally
         if (pstate.isRecoilingX)
         {
             if (pstate.isFacingRight)
             {
+                // KB player to the left if facing right
                 RB.velocity = new Vector2(-recoilSpeed.x, 0);
             }
             else
             {
+                // Otherwise KB player to the right
                 RB.velocity = new Vector2(recoilSpeed.x, 0);
             }
         }
@@ -632,7 +473,7 @@ public class PlayerMovement : MonoBehaviour
             RB.gravityScale = 0;
             if (_moveInput.y < 0)
             {
-
+                // If holding DOWN gets knockbacked Up, otherwise knockbacked down. 
                 RB.velocity = new Vector2(RB.velocity.x, recoilSpeed.y);
             }
             else
@@ -643,7 +484,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            RB.gravityScale = Data.gravityScale;
+            HandleGravity();
         }
 
         // Stop recoil when recoiled enough length
@@ -674,7 +515,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void setRecoilingDirection()
+    public void SetRecoilingDirection()
     {
         // When hitting down/up: RecoilingY with yspeed. Hitting Horizontal recoilX with xspeed. 
 
@@ -699,9 +540,311 @@ public class PlayerMovement : MonoBehaviour
         pstate.isRecoilingY = false;
     }
 
-    public void takeDamage(int damage)
+    /// <summary>
+    /// Lastpressed set to jumpinput buffer time. 
+    /// </summary>
+    public void OnJumpInput()
     {
-        if (!pstate.isAlive)
+        LastPressedJumpTime = Data.jumpInputBufferTime;
+    }
+
+    /// <summary>
+    /// Set _isJumpCut to true if player can jumpcut and can walljumpcut. 
+    /// </summary>
+    public void OnJumpUpInput()
+    {
+        if (CanJumpCut() || CanWallJumpCut())
+        {
+            _isJumpCut = true;
+        }
+    }
+
+
+    public void SetGravityScale(float scale)
+    {
+        RB.gravityScale = scale;
+    }
+
+
+    /// <summary>
+    /// Lerping movementspeed in some direction, also handles movement acceleration. 
+    /// </summary>
+    /// <param name="lerpAmount"></param>
+    private void Run(float lerpAmount)
+    {
+        // Calculate the direction we want to move in and our desired velocity
+        float targetSpeed = _moveInput.x * Data.runMaxSpeed;
+        // We can reduce control using Lerp() this smooths changes to direction and speed
+        targetSpeed = Mathf.Lerp(RB.velocity.x, targetSpeed, lerpAmount);
+
+        float accelRate;
+
+        // Gets an acceleration value based on if we are accelerating (includes turning) 
+        // or trying to decelerate (stop). As well as applying a multiplier if we're air borne.
+        if (LastOnGroundTime > 0)
+        {
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount : Data.runDeccelAmount;
+        }
+
+        else
+        {
+            accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Data.runAccelAmount * Data.accelInAir : Data.runDeccelAmount * Data.deccelInAir;
+        }
+
+        // Increase are acceleration and maxSpeed when at the apex of their jump, makes the jump feel a bit more bouncy, responsive and natural
+        if ((pstate.isJumping || pstate.isWallJumping || _isJumpFalling) && Mathf.Abs(RB.velocity.y) < Data.jumpHangTimeThreshold)
+        {
+            accelRate *= Data.jumpHangAccelerationMult;
+            targetSpeed *= Data.jumpHangMaxSpeedMult;
+        }
+
+
+        // We won't slow the player down if they are moving in their desired direction but at a greater speed than their maxSpeed
+        if (Data.doConserveMomentum && Mathf.Abs(RB.velocity.x) > Mathf.Abs(targetSpeed) && Mathf.Sign(RB.velocity.x) == Mathf.Sign(targetSpeed) && Mathf.Abs(targetSpeed) > 0.01f && LastOnGroundTime < 0)
+        {
+            // Prevent any deceleration from happening, or in other words conserve are current momentum
+            // You could experiment with allowing for the player to slightly increae their speed whilst in this "state"
+            accelRate = 0;
+        }
+
+        // Difference between current velocity and desired velocity
+        float speedDif = targetSpeed - RB.velocity.x;
+
+        // Force along x-axis to apply to thr player
+        float movement = speedDif * accelRate;
+
+        // Convert this to a vector and apply to rigidbody
+        RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
+        anim.SetBool("Walking", Mathf.Abs(RB.velocity.x) >= 0.1 && IsGrounded());
+    }
+
+    private void Slide()
+    {
+        // Works the same as the Run but only in the y-axis
+        float speedDif = Data.slideSpeed - RB.velocity.y;
+        float movement = speedDif * Data.slideAccel;
+        // So, we clamp the movement here to prevent any over corrections
+        // The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called.
+        movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
+        RB.AddForce(movement * Vector2.down);
+    }
+
+    /// <summary>
+    /// Turn player 180 degrees in the other direction
+    /// </summary>
+    private void Turn()
+    {
+        transform.Rotate(0f, 180, 0f);
+        pstate.isFacingRight = !pstate.isFacingRight;
+    }
+
+    /// <summary>
+    /// Jumping by adding Force
+    /// </summary>
+    private void Jump()
+    {
+        // Ensures we can't call Jump multiple times from one press
+        LastPressedJumpTime = 0;
+        LastOnGroundTime = 0;
+
+        // We increase the force applied if we are falling
+        // This means we'll always feel like we jump the same amount 
+        float force = Data.jumpForce;
+        if (RB.velocity.y < 0)
+        {
+            force -= RB.velocity.y;
+        }
+
+        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+    }
+
+    /// <summary>
+    /// Force is applied for the given direction. 
+    /// </summary>
+    /// <param name="dir"></param>
+    private void WallJump(int dir)
+    {
+        // Ensures we can't call Wall Jump multiple times from one press
+        LastPressedJumpTime = 0;
+        LastOnGroundTime = 0;
+        LastOnWallRightTime = 0;
+        LastOnWallLeftTime = 0;
+
+
+        Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
+        force.x *= dir; // apply force in opposite direction of wall
+
+        if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
+            force.x -= RB.velocity.x;
+
+        if (RB.velocity.y < 0) // checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
+            force.y -= RB.velocity.y;
+
+        // Unlike in the run we want to use the Impulse mode.
+        // The default mode will apply are force instantly ignoring mass
+        RB.AddForce(force, ForceMode2D.Impulse);
+    }
+
+
+
+    /// <summary>
+    /// If isMovingRIght is facing left then the player turns. 
+    /// </summary>
+    /// <param name="isMovingRight"></param>
+    public void CheckDirectionToFace(bool isMovingRight)
+    {
+        if (isMovingRight != pstate.isFacingRight)
+        {
+            Turn();
+        }
+
+    }
+
+    /// <summary>
+    /// True, if not jumping, LastOnGroundTime > 0 and LastPressedJumpTime > 0
+    /// </summary>
+    /// <returns></returns>
+    private bool CanJump()
+    {
+        return LastOnGroundTime > 0 && LastPressedJumpTime > 0 && !pstate.isJumping;
+    }
+
+    /// <summary>
+    /// Setting jumping = T, walljumping = F, jumpcut = F, jumpfalling = F. 
+    /// </summary>
+    private void SetJumpSettings()
+    {
+        pstate.isJumping = true;
+        pstate.isWallJumping = false;
+        _isJumpCut = false;
+        _isJumpFalling = false;
+    }
+
+    /// <summary>
+    /// True if has more jumps left. 
+    /// </summary>
+    /// <returns></returns>
+    private bool CanDoubleJump()
+    {
+        return airJumpCounter < maxAirJumps;
+    }
+
+
+    /// <summary>
+    /// Return T if can walljump...
+    /// </summary>
+    /// <returns></returns>
+    private bool CanWallJump()
+    {
+        return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!pstate.isWallJumping ||
+             (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
+    }
+
+    /// <summary>
+    /// If jumping and are moving upwards
+    /// </summary>
+    /// <returns></returns>
+    private bool CanJumpCut()
+    {
+        return pstate.isJumping && RB.velocity.y > 0;
+    }
+
+    /// <summary>
+    /// If already walljumping and is moving upwards
+    /// </summary>
+    /// <returns></returns>
+    private bool CanWallJumpCut()
+    {
+        return pstate.isWallJumping && RB.velocity.y > 0;
+    }
+
+    /// <summary>
+    /// Return T if not jump/wall jump and LastOnWallTime > 0, and LastOnGroundTime <= 0
+    /// </summary>
+    /// <returns></returns>
+    public bool CanSlide()
+    {
+        if (LastOnWallTime > 0 && !pstate.isJumping && !pstate.isWallJumping && LastOnGroundTime <= 0)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Cap max fall speed. 
+    /// </summary>
+    /// <param name="speed"></param>
+    public void SetMaxFallSpeed(float speed)
+    {
+        RB.velocity = new Vector2(RB.velocity.x, Mathf.Max(RB.velocity.y, -speed));
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
+        Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
+    }
+
+
+    /// <summary>
+    /// Checks if set box overlaps with ground
+    /// </summary>
+    /// <returns></returns>
+    public bool IsGrounded()
+    {
+        if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Return true if colliding with right wall and facing it. Or backplayer hits it facing left. 
+    /// </summary>
+    /// <returns></returns>
+    public bool IsCollidingWallRight()
+    {
+        if ((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && pstate.isFacingRight)
+            || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !pstate.isFacingRight))
+        {
+            return true;
+        }
+        return false;
+
+    }
+    /// <summary>
+    /// Return true if colliding with left wall and facing it. Or backplayer hits it facing right. 
+    /// </summary>
+    /// <returns></returns>
+    public bool IsCollidingWallLeft()
+    {
+        if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !pstate.isFacingRight)
+            || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && pstate.isFacingRight)))
+        {
+            return true;
+        }
+        return false;
+
+    }
+
+
+    /// <summary>
+    /// The player decreases health, killing him if sufficient damage.
+    /// </summary>
+    /// <param name="damage"></param>
+    public void TakeDamage(int damage)
+    {
+        if (!pstate.isAlive || damage < 0)
         {
             return;
         }
@@ -716,6 +859,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Death());
         }
 
+        // Player is not already invinsible
         if (!pstate.isInvinsible)
         {
             StartCoroutine(StartInvinsibleAnimation());
@@ -727,18 +871,14 @@ public class PlayerMovement : MonoBehaviour
         pstate.isAlive = false;
         GameManager.instance.switchGameState(); // Pause the gameplay
         // anim.SetTrigger("Death");            // Player death animation
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(timeBeforeDeathScreen);
         StartCoroutine(AnimationManager.instance.activateDeathScreen()); // Show death screen
 
     }
 
-    public void respawned()
+    public void Respawned()
     {
-        if (!pstate.isAlive)
-        {
-            pstate.isAlive = true;
-        }
-
+        pstate.isAlive = true;
         Input.ResetInputAxes();
         health = maxHealth;     // Change to the health in the save system!
         faceVerticalDir = "-";
@@ -747,6 +887,7 @@ public class PlayerMovement : MonoBehaviour
         changeHUD();
         pstate.isFacingRight = true;
         // Play idle animation
+
     }
 
     IEnumerator StartInvinsibleAnimation()
