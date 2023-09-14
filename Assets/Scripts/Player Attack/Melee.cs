@@ -15,30 +15,52 @@ public class Melee : MonoBehaviour
 
     private void Awake()
     {
-        GameStateManager.onGameStateChanged += onGameStateChanged;
+        GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
-
+    public void resetAttackTimer()
+    {
+        timeSinceAttack = 0f;
+    }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.player.unlocks.hasUnlockedMelee)
+        {
+            return;
+        }
         if (Time.time - timeSinceAttack >= attackTime)
         {
-            if (Input.GetButton("Melee"))
-            {  // right click
-                meleeAttack();
+            if (Input.GetButton("Melee") && CanAttack())     // right click
+            {
+                MeleeAttack();
                 timeSinceAttack = Time.time;
+            }
+            else
+            {
+                GameManager.instance.player.pstate.isAttackingMelee = false;
             }
         }
 
     }
 
-    void meleeAttack()
+
+    /// <summary>
+    /// Return T if, player is not attacked or player is not using its bow
+    /// </summary>
+    public bool CanAttack()
+    {
+        PlayerMovement p = GameManager.instance.player;
+        return !p.pstate.isInvinsible && !p.pstate.isAttackingBow;
+    }
+
+    void MeleeAttack()
     {
         // Animation
         anim.SetTrigger("Attack");
+        GameManager.instance.player.pstate.isAttackingMelee = true;
 
         //Detect enemies within some circle radius
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -47,7 +69,7 @@ public class Melee : MonoBehaviour
         foreach (Collider2D e in enemies)
         {
             Enemy enemy = e.GetComponent<Enemy>();
-            enemy.enemyHit(meleeDamage, (e.transform.position - transform.position).normalized, hitForce);
+            enemy.EnemyHit(meleeDamage, (e.transform.position - transform.position).normalized, hitForce);
         }
 
         // Recoil the player when melee hit enemies
@@ -66,14 +88,14 @@ public class Melee : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    protected void onGameStateChanged(GameState gameState)
+    protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
     }
 
     protected void OnDestroy()
     {
-        GameStateManager.onGameStateChanged -= onGameStateChanged;
+        GameStateManager.onGameStateChanged -= OnGameStateChanged;
     }
 
 }

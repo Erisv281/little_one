@@ -5,14 +5,9 @@ using UnityEngine;
 public class FlashAnimation : MonoBehaviour
 {
     [SerializeField] private float flashSpeed;
-    private float playerInvinsibleCooldown;
+    [SerializeField] private float flashCooldown;   // Eg. invisible or recoilduration
+    [SerializeField] private SpriteRenderer SR; // SR of the object that shall flash
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerInvinsibleCooldown = GameManager.instance.player.invinsibleCooldown;
-    }
 
     void Awake()
     {
@@ -23,7 +18,7 @@ public class FlashAnimation : MonoBehaviour
     void Update()
     {
         // Pingpong between transparent and red color of the player. 
-        GameManager.instance.player.SR.material.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * flashSpeed, playerInvinsibleCooldown));
+        SR.material.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time * flashSpeed, flashCooldown));
     }
 
     /// <summary>
@@ -31,7 +26,7 @@ public class FlashAnimation : MonoBehaviour
     /// </summary>
     public void destroyFlash()
     {
-        GameManager.instance.player.SR.material.color = Color.white;
+        SR.material.color = Color.white;
     }
 
     protected void onGameStateChanged(GameState gameState)

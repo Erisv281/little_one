@@ -47,10 +47,13 @@ public class Pause : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Start Scene")
         {
-            SceneManager.LoadScene("Start_Scene");
             ChangePause();
+            GameManager.instance.pauseMenu.FadeUIOut(GameManager.instance.fadeTime);
+            SceneManager.LoadScene("Start_Scene");
+
         }
     }
+
 
 
     // GameState

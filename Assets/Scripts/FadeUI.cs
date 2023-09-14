@@ -32,10 +32,10 @@ public class FadeUI : MonoBehaviour
 
     IEnumerator FadeIn(float seconds)
     {
-        canvasGroup.alpha = 1;
+        canvasGroup.alpha = 0;
         while (canvasGroup.alpha < 1)
         {
-            canvasGroup.alpha -= Time.unscaledDeltaTime / seconds;
+            canvasGroup.alpha += Time.unscaledDeltaTime / seconds;
             yield return null;
         }
         canvasGroup.interactable = true;

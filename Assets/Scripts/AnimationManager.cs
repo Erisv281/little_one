@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 //Handle arbitrary animation by calling this singleton instance. 
 public class AnimationManager : MonoBehaviour
 {
-    public SceneFader sceneFader;
+    public SceneFader sceneFader;   // Set this to SceneFader Canvas, initially activated
     public static AnimationManager instance;
     public GameObject deathScreen;
     private void Awake()
@@ -17,10 +17,11 @@ public class AnimationManager : MonoBehaviour
             return;
         }
         instance = this;
+        sceneFader = GetComponent<SceneFader>();
+        deathScreen.SetActive(false);
         DontDestroyOnLoad(gameObject);
 
-        sceneFader = GetComponentInChildren<SceneFader>();
-        deathScreen.SetActive(false);
+
     }
 
     public IEnumerator activateDeathScreen()

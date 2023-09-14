@@ -5,20 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] protected float health;
-    [SerializeField] protected float maxHealth;
-    [SerializeField] protected float recoilLength;    // How long the recoil lasts
-    [SerializeField] protected float recoilFactor;
-    [SerializeField] protected bool isFacingRight;
-    protected float recoilTimer;
-    protected Rigidbody2D RB;
-    [SerializeField] protected int damage;
-    protected GameObject deathEffect;
-    [SerializeField] protected float speed;
-
-    protected Animator anim;
-    protected SpriteRenderer sr;
-
     protected enum EnemyStates
     {
         Idle,
@@ -30,13 +16,28 @@ public class Enemy : MonoBehaviour
         Charge,
     }
 
-    protected EnemyStates currentState;
+    [SerializeField] protected float health;
+    [SerializeField] protected float maxHealth;
+    [SerializeField] protected float recoilDuration;    // How long the recoil lasts
+    [SerializeField] protected float recoilFactor;  // How endurance the enemy is from knockback
+    [SerializeField] protected float hitForce;   // How strong the enemy knockback player
+    [SerializeField] protected bool isFacingRight;
+    protected float recoilTimer;
+    [SerializeField] protected int damage;
+    //protected GameObject deathEffect;
 
+    [SerializeField] protected float speed;
+    protected Animator anim;
+    protected Rigidbody2D RB;
+    protected SpriteRenderer sr;
     [SerializeField] protected LayerMask groundLayer;
+    protected EnemyStates currentState;
+    [SerializeField] private FlashAnimation flashAnimation;
+
 
     protected virtual void Awake()
     {
-        GameStateManager.onGameStateChanged += onGameStateChanged;
+        GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
 
@@ -45,153 +46,168 @@ public class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         health = maxHealth;
-        isFacingRight = true;
         RB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        changeState(EnemyStates.Idle);
+        ChangeState(EnemyStates.Idle);
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        //print(currentState);
         if (!GameManager.instance.player.pstate.isAlive)
         {
-            changeState(EnemyStates.Idle);
+            ChangeState(EnemyStates.Idle);
         }
-        updateEnemyStates();
-
-        //if (!isRecoiling)
-        //{
-        //  Vector2 targetPos = new Vector2(GameManager.instance.player.gameObject.transform.position.x, transform.position.y);
-        //transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-        //}
-
+        UpdateEnemyStates();
+        ChangeAnimation();
     }
 
-    protected virtual void takeDamage(int damage, Vector2 hitDirection, float hitForce)
+    protected virtual void TakeDamage(int damage, Vector2 hitDirection, float hitForce)
     {
         health -= damage;
 
         if (health <= 0)
         {
-            changeState(EnemyStates.Death);
+            ChangeState(EnemyStates.Death);
             return;
-            //enemyDeath();
         }
+
         // If not recoiling then push the enemy back 
-        if (!isState(EnemyStates.Recoil))
+        if (!IsState(EnemyStates.Recoil))
         {
             // Note: Spawn hit effect here
             RB.velocity = hitDirection * hitForce * recoilFactor;
             recoilTimer = Time.time;
-            changeState(EnemyStates.Recoil);
+            ChangeState(EnemyStates.Recoil);
+            StartCoroutine(StartInvinsibleAnimation());
         }
 
     }
 
-    public void enemyHit(int damage, Vector2 hitDirection, float hitForce)
+    protected virtual IEnumerator StartInvinsibleAnimation()
     {
-        takeDamage(damage, hitDirection, hitForce);
+        //Set enemy invisibility = true ?
+        //anim.SetTrigger("TakeDamage");
+        flashAnimation.gameObject.SetActive(true);
+        yield return new WaitForSeconds(recoilDuration);
+        flashAnimation.destroyFlash();
+        flashAnimation.gameObject.SetActive(false);
+        //Set enemy invisibility = true ?
+
+    }
+
+    /// <summary>
+    /// Calls the TakeDamage function. 
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <param name="hitDirection"></param>
+    /// <param name="hitForce"></param>
+    public void EnemyHit(int damage, Vector2 hitDirection, float hitForce)
+    {
+        if (damage >= 0 && hitForce >= 0)
+        {
+            TakeDamage(damage, hitDirection, hitForce);
+        }
+
     }
 
     protected virtual void Attack()
     {
-        GameManager.instance.player.TakeDamage(this.damage);
+        PlayerMovement p = GameManager.instance.player;
+        p.TakeDamage(this.damage, (p.transform.position - transform.position).normalized, hitForce);
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)
     {
-        if (isState(EnemyStates.Death))
+        if (IsState(EnemyStates.Death))
         {
             return;
         }
 
-        if (other.CompareTag("player") && !GameManager.instance.player.pstate.isInvinsible)
+        if (other.CompareTag("player") && !GameManager.instance.player.pstate.isInvinsible && GameManager.instance.player.pstate.isAlive)
         {
             Attack();
         }
     }
 
-    protected virtual void updateEnemyStates()
+    protected virtual void UpdateEnemyStates()
     {
         // Placeholder for updating the enemy state
         switch (currentState)
         {
             case EnemyStates.Idle:
-                enemyIdle();
+                EnemyIdle();
                 break;
 
             case EnemyStates.Flip:
-                enemyFlip();
+                EnemyFlip();
                 break;
 
             case EnemyStates.Chase:
-                enemyChase();
+                EnemyChase();
                 break;
 
             case EnemyStates.Recoil:
-                enemyRecoil();
+                EnemyRecoil();
                 break;
 
             case EnemyStates.Death:
-                enemyDeath();
+                EnemyDeath();
                 break;
 
             case EnemyStates.Surprise:
-                enemySurprise();
+                EnemySurprise();
                 break;
 
             case EnemyStates.Charge:
-                enemyCharge();
+                EnemyCharge();
                 break;
-
         }
     }
 
-    protected virtual void enemyIdle()
+    protected virtual void EnemyIdle()
     {
         // Placeholder for enemy is idle
     }
 
-    protected virtual void enemyFlip()
+    protected virtual void EnemyFlip()
     {
         // Placeholder for enemy is flipping
     }
 
-    protected virtual void enemyChase()
+    protected virtual void EnemyChase()
     {
         // Placeholder for enemy is chasing player
     }
 
-    protected virtual void enemyRecoil()
+    protected virtual void EnemyRecoil()
     {
         // Placeholder for enemy is recoiling
     }
 
-    protected virtual void enemyDeath()
+    protected virtual void EnemyDeath()
     {
         // Note: Spawn death effect here
         Destroy(gameObject);
     }
 
-    protected virtual void enemySurprise()
+    protected virtual void EnemySurprise()
     {
         // Placeholder for when the enemy is surprised
     }
 
-    protected virtual void enemyCharge()
+    protected virtual void EnemyCharge()
     {
         // Placeholder for enemy charging
     }
 
-    protected virtual void changeState(EnemyStates newState)
+    protected virtual void ChangeState(EnemyStates newState)
     {
         currentState = newState;
     }
 
-    protected virtual bool isState(EnemyStates newState)
+    protected virtual bool IsState(EnemyStates newState)
     {
         return currentState == newState;
     }
@@ -202,19 +218,20 @@ public class Enemy : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    protected virtual void changeAnimation()
+    protected virtual void ChangeAnimation()
     {
+        // Placeholder for handling all animations
 
     }
 
-    protected void onGameStateChanged(GameState gameState)
+    protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
     }
 
     protected void OnDestroy()
     {
-        GameStateManager.onGameStateChanged -= onGameStateChanged;
+        GameStateManager.onGameStateChanged -= OnGameStateChanged;
     }
 
 

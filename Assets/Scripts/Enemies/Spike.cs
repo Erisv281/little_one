@@ -5,10 +5,11 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     [SerializeField] private int damage;
+    [SerializeField] private float hitForce;
 
     private void Awake()
     {
-        GameStateManager.onGameStateChanged += onGameStateChanged;
+        GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,16 +23,17 @@ public class Spike : MonoBehaviour
 
     public void Attack()
     {
-        GameManager.instance.player.TakeDamage(this.damage);
+        PlayerMovement p = GameManager.instance.player;
+        p.TakeDamage(this.damage, (p.transform.position - transform.position).normalized, hitForce);
     }
 
-    protected void onGameStateChanged(GameState gameState)
+    protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
     }
 
     protected void OnDestroy()
     {
-        GameStateManager.onGameStateChanged -= onGameStateChanged;
+        GameStateManager.onGameStateChanged -= OnGameStateChanged;
     }
 }

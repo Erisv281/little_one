@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer SR { get; private set; }
     private Animator anim;
     public PlayerStateList pstate;
+    public PlayerUnlocks unlocks;
     public Rigidbody2D RB { get; private set; }
     public PlayerData Data;
     [SerializeField] private float timeBeforeDeathScreen;   // Time before death screen pops up
@@ -118,7 +119,11 @@ public class PlayerMovement : MonoBehaviour
         CheckJump();
         CheckSlide();
         HandleGravity();
-        StartDash();
+        if (unlocks.hasUnlockedDash)
+        {
+            StartDash();
+        }
+
 
     }
 
@@ -299,16 +304,8 @@ public class PlayerMovement : MonoBehaviour
             SetJumpSettings();
             Jump();
         }
-        // Double jump
-        else if (!IsGrounded() && CanDoubleJump() && Input.GetButtonDown("Jump"))
-        {
-            SetJumpSettings();
-            airJumpCounter++;
-            Jump();
-        }
-
         // Wall jump
-        else if (CanWallJump() && LastPressedJumpTime > 0)
+        else if (unlocks.hasUnlockedWallJump && CanWallJump() && LastPressedJumpTime > 0)
         {
             pstate.isWallJumping = true;
             pstate.isJumping = false;
@@ -318,6 +315,15 @@ public class PlayerMovement : MonoBehaviour
             _lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
             WallJump(_lastWallJumpDir);
         }
+        // Double jump
+        else if (unlocks.hasUnlockedDoubleJump && !IsGrounded() && CanDoubleJump() && Input.GetButtonDown("Jump") && !CanWallJump())
+        {
+            SetJumpSettings();
+            airJumpCounter++;
+            Jump();
+        }
+
+
 
         anim.SetBool("Jumping", pstate.isJumping && RB.velocity.y > 0);
     }
@@ -445,6 +451,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return false;
+    }
+
+    /// <summary>
+    /// Handle player knockback
+    /// </summary>
+    public void KnockBack(Vector2 hitDirection, float hitForce)
+    {
+        RB.velocity = hitDirection * hitForce;   // Recoil set
     }
 
 
@@ -842,7 +856,7 @@ public class PlayerMovement : MonoBehaviour
     /// The player decreases health, killing him if sufficient damage.
     /// </summary>
     /// <param name="damage"></param>
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 hitDirection, float hitForce)
     {
         if (!pstate.isAlive || damage < 0)
         {
@@ -862,6 +876,7 @@ public class PlayerMovement : MonoBehaviour
         // Player is not already invinsible
         if (!pstate.isInvinsible)
         {
+            KnockBack(hitDirection, hitForce);
             StartCoroutine(StartInvinsibleAnimation());
         }
     }
@@ -870,7 +885,7 @@ public class PlayerMovement : MonoBehaviour
     {
         pstate.isAlive = false;
         GameManager.instance.switchGameState(); // Pause the gameplay
-        // anim.SetTrigger("Death");            // Player death animation
+        anim.SetTrigger("Death");            // Player death animation
         yield return new WaitForSeconds(timeBeforeDeathScreen);
         StartCoroutine(AnimationManager.instance.activateDeathScreen()); // Show death screen
 
@@ -885,8 +900,7 @@ public class PlayerMovement : MonoBehaviour
         SetGravityScale(Data.gravityScale);
         canDash = true;
         changeHUD();
-        pstate.isFacingRight = true;
-        // Play idle animation
+        anim.Play("player_idle");
 
     }
 
@@ -899,8 +913,22 @@ public class PlayerMovement : MonoBehaviour
         flashAnimation.destroyFlash();
         flashAnimation.gameObject.SetActive(false);
         pstate.isInvinsible = false;
+        RB.velocity = Vector2.zero;    // Stop knockback
+
+        // Reset attack timers
+        if (unlocks.hasUnlockedMelee)
+        {
+            melee.GetComponent<Melee>().resetAttackTimer();
+        }
+
+        if (unlocks.hasUnlockedBow)
+        {
+            bow.GetComponent<Bow>().resetAttackTimer();
+        }
 
     }
+
+
 
     public IEnumerator WalkIntoNewScene(Vector2 exitDir, float delay)
     {

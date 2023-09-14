@@ -4,36 +4,41 @@ using UnityEngine;
 
 public class Charger : Walker
 {
-    [SerializeField] private float chargeSpeedMultiplier;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float chargeSpeedMultiplier;    // How x faster enemy becomes
     [SerializeField] private float chargeDuration;
+    [SerializeField] private float surpriseDuration; // How long to be surprised
     float chargeTimer;
+    float surpriseTimer;
 
-    protected override void enemySurprise()
+    protected override void EnemySurprise()
     {
-        // Do something here, then charge
-        //RB.velocity = new Vector2(0, jumpForce);
-        changeState(EnemyStates.Charge);
-
+        StartCoroutine(StartSurprise());
     }
 
-    protected override void enemyIdle()
+    public IEnumerator StartSurprise()
     {
-        base.enemyIdle();
+        anim.SetTrigger("Charger_surprise");
+        yield return new WaitForSeconds(surpriseDuration);
+        ChangeState(EnemyStates.Charge);
+    }
+
+    protected override void EnemyIdle()
+    {
+        base.EnemyIdle();
         // Cast a raycast in front of the player, charge when closed enough
-        updateLedgeCheck();
+        UpdateLedgeCheck();
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position + ledgeCheckStart, wallCheckDir, ledgeCheck.x * 10);
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("player"))
             {
-                changeState(EnemyStates.Surprise);
+                ChangeState(EnemyStates.Surprise);
             }
         }
     }
 
-    protected override void enemyCharge()
+    protected override void EnemyCharge()
     {
         chargeTimer += Time.deltaTime;
         if (chargeTimer < chargeDuration)
@@ -46,7 +51,6 @@ public class Charger : Walker
             }
             else
             {
-                //RB.velocity = new Vector2(0, RB.velocity.y);
                 RB.velocity = Vector2.zero;
             }
         }
@@ -54,19 +58,23 @@ public class Charger : Walker
         {
             // Charging done
             chargeTimer = 0;
-            changeState(EnemyStates.Idle);
+            ChangeState(EnemyStates.Idle);
 
         }
     }
 
-    protected override void changeAnimation()
+    protected override void ChangeAnimation()
     {
-        if (isState(EnemyStates.Idle))
+        anim.SetBool("Charger_idle", IsState(EnemyStates.Idle));            // Note: Need to match
+
+        anim.SetBool("Charger_charge", IsState(EnemyStates.Charge));
+
+        if (IsState(EnemyStates.Idle))
         {
             anim.speed = 1;
         }
 
-        if (isState(EnemyStates.Charge))
+        if (IsState(EnemyStates.Charge))
         {
             anim.speed = chargeSpeedMultiplier;
         }
@@ -74,8 +82,3 @@ public class Charger : Walker
     }
 }
 
-//Buggar: 
-
-// Does not jump vertically solemly
-
-// When jumping: Gets stuck at close corner walls. 

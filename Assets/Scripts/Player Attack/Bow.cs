@@ -13,42 +13,65 @@ public class Bow : MonoBehaviour
 
     void Awake()
     {
-        GameStateManager.onGameStateChanged += onGameStateChanged;
+        GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.player.unlocks.hasUnlockedBow)
+        {
+            return;
+        }
+
         if (Time.time - nextAttackTime >= attackTime)
         {
-            if (Input.GetButtonDown("Bow"))   // left click
+            // Can only shoot when not attacked nor using melee
+            if (Input.GetButtonDown("Bow") && CanAttack())   // left click
             {
                 Shoot();
                 nextAttackTime = Time.time;
             }
         }
+        else
+        {
+            GameManager.instance.player.pstate.isAttackingBow = false;
+        }
 
+    }
+
+    public void resetAttackTimer()
+    {
+        nextAttackTime = 0f;
+    }
+
+    public bool CanAttack()
+    {
+        PlayerMovement p = GameManager.instance.player;
+        return !p.pstate.isInvinsible && !p.pstate.isAttackingMelee;
     }
 
     void Shoot()
     {
         // Animation
         anim.SetTrigger("BowAttack");
+        GameManager.instance.player.pstate.isAttackingBow = true;
 
         // Bow shooting
         Instantiate(arrow, firePoint.position, firePoint.rotation);
     }
 
-    protected void onGameStateChanged(GameState gameState)
+    protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
     }
 
     protected void OnDestroy()
     {
-        GameStateManager.onGameStateChanged -= onGameStateChanged;
+        GameStateManager.onGameStateChanged -= OnGameStateChanged;
     }
+
 
 }
 

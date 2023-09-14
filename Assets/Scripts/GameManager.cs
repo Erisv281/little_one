@@ -9,20 +9,28 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public PlayerMovement player;
     public string transitionedFromScene;
-    public Vector2 respawnPoint;            // Need to be set to something initial, if we havent received checkpoint yet. 
+
+    // Saving these variables
+    public Vector2 respawnPoint;
+
+    // List [] savepoint VectorPos. If have interacted then sprite is green, otherwise gray. 
+    // Vector2 latest_Savepoint_interacted that will set respawnpoint
+
+    // Player health and maxhealth
+    // 
+
+
+
+    // Enemies defeated? No, they shall return. 
 
     // Canvases
     public HUD hud;
-
     public FadeUI pauseMenu;
     public float fadeTime;
 
 
     void Awake()
     {
-        GameStateManager.instance = new GameStateManager(); // Can give problems in respawn
-        GameStateManager.onGameStateChanged += onGameStateChanged;
-
         if (GameManager.instance != null)
         {
             Destroy(player.gameObject);
@@ -32,14 +40,31 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        GameStateManager.instance = new GameStateManager(); // Can give problems in respawn
+        GameStateManager.onGameStateChanged += onGameStateChanged;
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
     }
+
+    // Death screen methods
     public void respawnPlayer()
     {
         instance.player.transform.position = respawnPoint;
         StartCoroutine(AnimationManager.instance.deactivateDeathScreen());
+        switchGameState();
         instance.player.Respawned();
+    }
+
+    public void QuitGame()
+    {
+        if (SceneManager.GetActiveScene().name != "Start Scene")
+        {
+            Input.ResetInputAxes();     // Reset the input buffer
+            StartCoroutine(AnimationManager.instance.deactivateDeathScreen());
+            switchGameState();
+            SceneManager.LoadScene("Start_Scene");
+        }
+
     }
 
     //GameState
@@ -68,13 +93,16 @@ public class GameManager : MonoBehaviour
     public void OnSceneLoaded(Scene s, LoadSceneMode mode)
     {
         instance.pauseMenu.gameObject.SetActive(false);
+        AnimationManager.instance.sceneFader.fadeOutImage.enabled = false;
 
         if (SceneManager.GetActiveScene().name.Equals("Start_Scene"))
         {
             instance.hud.gameObject.SetActive(false);
+            instance.player.gameObject.SetActive(false);
         }
         else
         {
+            instance.player.gameObject.SetActive(true);
             instance.hud.gameObject.SetActive(true);
             instance.hud.UpdateHartsHUD();
             instance.player.transform.position = respawnPoint;

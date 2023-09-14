@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 7944470237499904175}
   - component: {fileID: 360469949710479344}
   - component: {fileID: 7038766401210616974}
+  - component: {fileID: 2527270890288687569}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -199,7 +200,7 @@ MonoBehaviour:
   recoilLength: {x: 0.5, y: 1}
   recoilSpeed: {x: 10, y: 10}
   health: 0
-  maxHealth: 100
+  maxHealth: 20
   invinsibleCooldown: 1
   flashAnimation: {fileID: 4602374563578919993}
   _groundCheckPoint: {fileID: 8388485333527067829}
@@ -211,6 +212,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   pstate: {fileID: 7944470237499904175}
+  unlocks: {fileID: 2527270890288687569}
   Data: {fileID: 11400000, guid: 31b0044233061dc46bfda590c7b5e682, type: 2}
   timeBeforeDeathScreen: 0.9
 --- !u!114 &7277961251294163869
@@ -227,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3945708874960390863}
   arrow: {fileID: 503284103893894023, guid: 5d389519a4cc6d24494d9f1a7d43df14, type: 3}
-  attackTime: 0.5
+  attackTime: 0.8
   anim: {fileID: 1961125108676019674}
 --- !u!114 &3004157672706680967
 MonoBehaviour:
@@ -272,6 +274,8 @@ MonoBehaviour:
   isFacingRight: 1
   isEnteringCutscene: 0
   isAlive: 1
+  isAttackingMelee: 0
+  isAttackingBow: 0
 --- !u!114 &360469949710479344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +353,23 @@ PolygonCollider2D:
       - {x: -0.17, y: -0.45}
       - {x: 0.17, y: -0.45}
   m_UseDelaunayMesh: 0
+--- !u!114 &2527270890288687569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146963115439094770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1377f89ff2ca8cf4e896aaff27a2b710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedBow: 0
+  unlockedMelee: 0
+  unlockedWallJump: 0
+  unlockedDoubleJump: 0
+  unlockedDash: 0
 --- !u!1 &1900888444742527547
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +575,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2842877811936210369, guid: 7bbe0bbf4c15fed4a85baf39c666f3c7, type: 3}
+      propertyPath: SR
+      value: 
+      objectReference: {fileID: 3745293325376388745}
+    - target: {fileID: 2842877811936210369, guid: 7bbe0bbf4c15fed4a85baf39c666f3c7, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842877811936210369, guid: 7bbe0bbf4c15fed4a85baf39c666f3c7, type: 3}
+      propertyPath: flashCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484619283293204789, guid: 7bbe0bbf4c15fed4a85baf39c666f3c7, type: 3}

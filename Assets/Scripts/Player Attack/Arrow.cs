@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int arrowDamage;
     [SerializeField] private Rigidbody2D RB;
-    [SerializeField] private float hitForce = 10;   // The knockback force
+    [SerializeField] private float hitForce;   // The knockback force
 
     // Start is called before the first frame update
     void Start()
@@ -17,34 +17,34 @@ public class Arrow : MonoBehaviour
 
     void Awake()
     {
-        GameStateManager.onGameStateChanged += onGameStateChanged;
+        GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
+        // Return if the arrow is hitting the player
         if (other.GetComponent<PlayerMovement>() != null)
         {
             return;
         }
 
         Enemy e = other.GetComponent<Enemy>();
-
         if (e != null)
         {
-            e.enemyHit(arrowDamage, (e.transform.position - transform.position).normalized, hitForce);
+            e.EnemyHit(arrowDamage, (e.transform.position - transform.position).normalized, hitForce);
         }
         Destroy(gameObject);
     }
 
-    protected void onGameStateChanged(GameState gameState)
+    protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
     }
 
     protected void OnDestroy()
     {
-        GameStateManager.onGameStateChanged -= onGameStateChanged;
+        GameStateManager.onGameStateChanged -= OnGameStateChanged;
     }
 
 }

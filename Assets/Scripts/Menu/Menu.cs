@@ -13,13 +13,14 @@ public class MainMenu : MonoBehaviour
     {
         fadeUI = GetComponent<FadeUI>();
         fadeUI.FadeUIOut(fadeTime);
-
     }
 
     public IEnumerator FadeAndStartGame(string sceneToLoad)
     {
         fadeUI.FadeUIIn(fadeTime);
         yield return new WaitForSeconds(fadeTime);
+        GameManager.instance.player.transform.position = GameManager.instance.respawnPoint;
+        GameManager.instance.player.Respawned();
         SceneManager.LoadScene(sceneToLoad);
     }
 

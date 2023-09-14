@@ -9,18 +9,12 @@ public class SceneFader : MonoBehaviour
 {
 
     [SerializeField] private float fadeTime;    // How long the fade shall last
-    [SerializeField] private Image fadeOutImage;
+    public Image fadeOutImage;
     public enum FadeDirection
     {
         In,
         Out,
     }
-
-    private void Start()
-    {
-        //fadeOutImage.setActive(false);
-    }
-
 
     /// <summary>
     /// Either decreases or increases the alpha value depending on the fadedirection. 

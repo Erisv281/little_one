@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bat : Enemy
 {
 
-    [SerializeField] private float chaseDistance;
+    [SerializeField] private float chaseRadius;   // The radius where Bat will spot player
     private float distanceToPlayer;
 
 
@@ -14,7 +14,7 @@ public class Bat : Enemy
     protected override void Start()
     {
         base.Start();
-        changeState(EnemyStates.Idle);
+        ChangeState(EnemyStates.Idle);
         distanceToPlayer = Vector2.Distance(transform.position, GameManager.instance.player.transform.position);
 
     }
@@ -24,42 +24,41 @@ public class Bat : Enemy
     {
         distanceToPlayer = Vector2.Distance(transform.position, GameManager.instance.player.transform.position);
         base.Update();
-
     }
 
-    protected override void enemyIdle()
+    protected override void EnemyIdle()
     {
-        if (distanceToPlayer <= chaseDistance)
+        // If player is within chase radius, start chase player. 
+        if (distanceToPlayer <= chaseRadius)
         {
-            changeState(EnemyStates.Chase);
+            ChangeState(EnemyStates.Chase);
         }
 
     }
 
-    protected override void enemyChase()
+    protected override void EnemyChase()
     {
+        // Move towards the player
         RB.MovePosition(Vector2.MoveTowards(transform.position,
          GameManager.instance.player.transform.position, Time.deltaTime * speed));
 
         Turn();
     }
 
-    protected override void enemyRecoil()
+    protected override void EnemyRecoil()
     {
-        if (Time.time - recoilTimer >= recoilLength)
+        if (Time.time - recoilTimer >= recoilDuration)
         {
             recoilTimer = Time.time;
-            changeState(EnemyStates.Idle);
+            ChangeState(EnemyStates.Idle);
             RB.velocity = Vector2.zero;
-
         }
     }
 
-    protected override void enemyDeath()
+    protected override void EnemyDeath()
     {
         RB.gravityScale = 12;
-        base.enemyDeath();
-
+        base.EnemyDeath();
     }
 
 
@@ -68,12 +67,12 @@ public class Bat : Enemy
         sr.flipX = GameManager.instance.player.transform.position.x < transform.position.x ? true : false;
     }
 
-    protected override void changeAnimation()
+    protected override void ChangeAnimation()
     {
-        anim.SetBool("Idle", isState(EnemyStates.Idle));            // Note: Need to match
-        anim.SetBool("Chase", isState(EnemyStates.Chase));
-        anim.SetBool("Recoil", isState(EnemyStates.Recoil));
-        if (isState(EnemyStates.Death))
+        anim.SetBool("Bat_idle", IsState(EnemyStates.Idle));            // Note: Need to match
+        anim.SetBool("Chase", IsState(EnemyStates.Chase));
+        anim.SetBool("Recoil", IsState(EnemyStates.Recoil));
+        if (IsState(EnemyStates.Death))
         {
             anim.SetTrigger("Death");
 
