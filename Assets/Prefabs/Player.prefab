@@ -200,8 +200,8 @@ MonoBehaviour:
   recoilLength: {x: 0.5, y: 1}
   recoilSpeed: {x: 10, y: 10}
   health: 0
-  maxHealth: 20
-  invinsibleCooldown: 1
+  maxHealth: 6
+  invinsibleCooldown: 0.5
   flashAnimation: {fileID: 4602374563578919993}
   _groundCheckPoint: {fileID: 8388485333527067829}
   _groundCheckSize: {x: 0.56, y: 0.03}
@@ -211,6 +211,16 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  switchLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  plateLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  anim: {fileID: 0}
   pstate: {fileID: 7944470237499904175}
   unlocks: {fileID: 2527270890288687569}
   Data: {fileID: 11400000, guid: 31b0044233061dc46bfda590c7b5e682, type: 2}
@@ -249,6 +259,12 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  switchLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   meleeDamage: 1
   attackTime: 0.5
   hitForce: 12
@@ -365,11 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1377f89ff2ca8cf4e896aaff27a2b710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedBow: 0
-  unlockedMelee: 0
-  unlockedWallJump: 0
-  unlockedDoubleJump: 0
-  unlockedDash: 0
+  hasUnlockedBow: 0
+  hasUnlockedMelee: 0
+  hasUnlockedWallJump: 0
+  hasUnlockedDoubleJump: 0
+  hasUnlockedDash: 0
 --- !u!1 &1900888444742527547
 GameObject:
   m_ObjectHideFlags: 0

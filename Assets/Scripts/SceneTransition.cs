@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-
-
-    [SerializeField] private string transitionTo;
-    [SerializeField] private Transform startPoint;
-    [SerializeField] private Vector2 exitDirection;  // Dir for player is exiting
+    [SerializeField] private string transitionTo; // Save the scene we're going to transition to. 
+    [SerializeField] private Transform startPoint; // Where to place the player after he has transitioned. 
+    [SerializeField] private Vector2 exitDirection;  // Dir for player is exiting, Not using!
     [SerializeField] private float exitTime;
 
     private void Start()
@@ -31,10 +29,10 @@ public class SceneTransition : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("player"))
-        {     // Check if player has this tag
+        {
+            print("Scenetransition");
             GameManager.instance.transitionedFromScene = SceneManager.GetActiveScene().name;
             GameManager.instance.player.pstate.isEnteringCutscene = true;
-            //SceneManager.LoadScene(transitionTo);
             StartCoroutine(AnimationManager.instance.sceneFader.FadeAndLoadScene(SceneFader.FadeDirection.In, transitionTo));
 
         }

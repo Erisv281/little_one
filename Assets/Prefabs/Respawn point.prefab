@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2782884840653732825}
   - component: {fileID: 3922944027112041586}
   - component: {fileID: 975737666336044847}
+  - component: {fileID: 7547781499649764015}
   m_Layer: 0
   m_Name: Respawn point
   m_TagString: Untagged
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interacted: 0
+  graySprite: {fileID: 1683100385, guid: 229dff328fea12748858606b2b7ae366, type: 3}
+  greenSprite: {fileID: -7905118, guid: 229dff328fea12748858606b2b7ae366, type: 3}
 --- !u!212 &975737666336044847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -140,7 +143,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a085cc4efa6b20a498618e121ee3bc69, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,3 +175,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7547781499649764015
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3573423710233987911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfe67c984bf343d499b9d69531010e0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

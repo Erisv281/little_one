@@ -1896,6 +1896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1146963115439094770, guid: 1cee02ddfb4102542b81d6bab66d478f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629780137618792454, guid: 1cee02ddfb4102542b81d6bab66d478f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5572
@@ -2119,7 +2123,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level_demo
+          m_StringArgument: level_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1540398725
@@ -2683,6 +2687,14 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 578372407}
+    - target: {fileID: 789001767987217652, guid: 31fe23d37a51eec4cb1a5e4ea8ad605e, type: 3}
+      propertyPath: respawnPoint.x
+      value: 0.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 789001767987217652, guid: 31fe23d37a51eec4cb1a5e4ea8ad605e, type: 3}
+      propertyPath: respawnPoint.y
+      value: -0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 3470239121705825505, guid: 31fe23d37a51eec4cb1a5e4ea8ad605e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8757961

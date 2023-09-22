@@ -47,6 +47,7 @@ public class Pause : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Start Scene")
         {
+            Input.ResetInputAxes();     // Reset the input buffer
             ChangePause();
             GameManager.instance.pauseMenu.FadeUIOut(GameManager.instance.fadeTime);
             SceneManager.LoadScene("Start_Scene");

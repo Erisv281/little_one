@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeUI.FadeUIIn(fadeTime);
         yield return new WaitForSeconds(fadeTime);
+        GameManager.instance.player.gameObject.SetActive(true);
         GameManager.instance.player.transform.position = GameManager.instance.respawnPoint;
         GameManager.instance.player.Respawned();
         SceneManager.LoadScene(sceneToLoad);

@@ -7,6 +7,7 @@ public class Charger : Walker
     [SerializeField] private float chargeSpeedMultiplier;    // How x faster enemy becomes
     [SerializeField] private float chargeDuration;
     [SerializeField] private float surpriseDuration; // How long to be surprised
+    [SerializeField] private GameObject surpriseAnimPrefab;
     float chargeTimer;
     float surpriseTimer;
 
@@ -17,9 +18,11 @@ public class Charger : Walker
 
     public IEnumerator StartSurprise()
     {
-        anim.SetTrigger("Charger_surprise");
-        yield return new WaitForSeconds(surpriseDuration);
         ChangeState(EnemyStates.Charge);
+        surpriseAnimPrefab.SetActive(true);
+        yield return new WaitForSeconds(surpriseDuration);
+        surpriseAnimPrefab.SetActive(false);
+
     }
 
     protected override void EnemyIdle()
@@ -63,10 +66,18 @@ public class Charger : Walker
         }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(_groundCheckPoint.position, _groundCheckSize);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
+        Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
+    }
+
     protected override void ChangeAnimation()
     {
         anim.SetBool("Charger_idle", IsState(EnemyStates.Idle));            // Note: Need to match
-
         anim.SetBool("Charger_charge", IsState(EnemyStates.Charge));
 
         if (IsState(EnemyStates.Idle))

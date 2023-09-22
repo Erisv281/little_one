@@ -49,7 +49,7 @@ public class Bow : MonoBehaviour
     public bool CanAttack()
     {
         PlayerMovement p = GameManager.instance.player;
-        return !p.pstate.isInvinsible && !p.pstate.isAttackingMelee;
+        return !p.pstate.isInvinsible && !p.pstate.isAttackingMelee && p.pstate.isAlive && !p.pstate.isEnteringCutscene;
     }
 
     void Shoot()

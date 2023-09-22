@@ -8,15 +8,17 @@ public class Bat : Enemy
     [SerializeField] private float chaseRadius;   // The radius where Bat will spot player
     private float distanceToPlayer;
 
-
+    protected override void PlayerDeath()
+    {
+        base.PlayerDeath();
+        distanceToPlayer = Vector2.Distance(transform.position, GameManager.instance.player.transform.position);
+    }
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        ChangeState(EnemyStates.Idle);
         distanceToPlayer = Vector2.Distance(transform.position, GameManager.instance.player.transform.position);
-
     }
 
     // Update is called once per frame
@@ -70,13 +72,7 @@ public class Bat : Enemy
     protected override void ChangeAnimation()
     {
         anim.SetBool("Bat_idle", IsState(EnemyStates.Idle));            // Note: Need to match
-        anim.SetBool("Chase", IsState(EnemyStates.Chase));
-        anim.SetBool("Recoil", IsState(EnemyStates.Recoil));
-        if (IsState(EnemyStates.Death))
-        {
-            anim.SetTrigger("Death");
-
-        }
+        anim.SetBool("Chasing", IsState(EnemyStates.Chase));
     }
 
 

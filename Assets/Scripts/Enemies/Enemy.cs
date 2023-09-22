@@ -24,15 +24,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool isFacingRight;
     protected float recoilTimer;
     [SerializeField] protected int damage;
-    //protected GameObject deathEffect;
-
+    [SerializeField] protected GameObject hart;
     [SerializeField] protected float speed;
     protected Animator anim;
     protected Rigidbody2D RB;
     protected SpriteRenderer sr;
     [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected LayerMask attackableLayer;
+    [SerializeField] protected LayerMask deathLayer;
     protected EnemyStates currentState;
     [SerializeField] private FlashAnimation flashAnimation;
+
+    protected Vector3 startPosition;
 
 
     protected virtual void Awake()
@@ -45,10 +48,20 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        startPosition = transform.position;
         health = maxHealth;
         RB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        ChangeState(EnemyStates.Idle);
+        GameManager.instance.player.onPlayerDeathCallback += PlayerDeath;
+    }
+
+    protected virtual void PlayerDeath()
+    {
+        // Player has died and is respawning. 
+        transform.position = startPosition;
+        health = maxHealth;
         ChangeState(EnemyStates.Idle);
     }
 
@@ -87,13 +100,10 @@ public class Enemy : MonoBehaviour
 
     protected virtual IEnumerator StartInvinsibleAnimation()
     {
-        //Set enemy invisibility = true ?
-        //anim.SetTrigger("TakeDamage");
         flashAnimation.gameObject.SetActive(true);
         yield return new WaitForSeconds(recoilDuration);
         flashAnimation.destroyFlash();
         flashAnimation.gameObject.SetActive(false);
-        //Set enemy invisibility = true ?
 
     }
 
@@ -189,6 +199,14 @@ public class Enemy : MonoBehaviour
     protected virtual void EnemyDeath()
     {
         // Note: Spawn death effect here
+        StartCoroutine(DeathAnim());
+    }
+
+    protected virtual IEnumerator DeathAnim()
+    {
+        anim.SetTrigger("Death");            // Play death animation for 0.5 seconds
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(hart, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
@@ -232,6 +250,7 @@ public class Enemy : MonoBehaviour
     protected void OnDestroy()
     {
         GameStateManager.onGameStateChanged -= OnGameStateChanged;
+        GameManager.instance.player.onPlayerDeathCallback -= PlayerDeath;
     }
 
 

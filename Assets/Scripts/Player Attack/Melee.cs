@@ -8,6 +8,8 @@ public class Melee : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private LayerMask itemLayer;
+    [SerializeField] private LayerMask switchLayer;
     [SerializeField] private int meleeDamage;
     [SerializeField] private float attackTime = 0.5f;   // Time to next attack
     private float timeSinceAttack = 0f;
@@ -53,7 +55,7 @@ public class Melee : MonoBehaviour
     public bool CanAttack()
     {
         PlayerMovement p = GameManager.instance.player;
-        return !p.pstate.isInvinsible && !p.pstate.isAttackingBow;
+        return !p.pstate.isInvinsible && !p.pstate.isAttackingBow && p.pstate.isAlive && !p.pstate.isEnteringCutscene;
     }
 
     void MeleeAttack()
@@ -77,6 +79,21 @@ public class Melee : MonoBehaviour
         {
             GameManager.instance.player.SetRecoilingDirection();
         }
+
+        // Detect and destroy ITEMS within some circle radius
+        Collider2D item = Physics2D.OverlapCircle(attackPoint.position, attackRange, itemLayer);
+        if (item != null)
+        {
+            Destroy(item.gameObject);
+        }
+
+        // Detect and activate switches within some circle radius
+        Collider2D _switch = Physics2D.OverlapCircle(attackPoint.position, attackRange, switchLayer);
+        if (_switch != null)
+        {
+            _switch.GetComponent<SwitchBase>().CallActivateSwitch();   // Need inheritance. 
+        }
+
     }
 
     void OnDrawGizmosSelected()

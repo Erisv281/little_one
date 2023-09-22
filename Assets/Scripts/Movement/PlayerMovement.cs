@@ -70,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
     [Space(5)]
     [Header("Checks")]
     // Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
-    [SerializeField] private Transform _groundCheckPoint;
-    [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
+    public Transform _groundCheckPoint;
+    public Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
     [Space(5)]
     [SerializeField] private Transform _frontWallCheckPoint;
     [SerializeField] private Transform _backWallCheckPoint;
@@ -79,8 +79,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Others")]
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask switchLayer;
+    [SerializeField] private LayerMask plateLayer;
+    [SerializeField] private LayerMask deathLayer;
     public SpriteRenderer SR { get; private set; }
-    private Animator anim;
+    public Animator anim;
     public PlayerStateList pstate;
     public PlayerUnlocks unlocks;
     public Rigidbody2D RB { get; private set; }
@@ -90,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
     // HUD delegates
     public delegate void OnHealthChanged();
     [HideInInspector] public OnHealthChanged onHealthChangedCallback;
+
+    public delegate void OnPlayerDeath();
+    [HideInInspector] public OnPlayerDeath onPlayerDeathCallback;
 
 
 
@@ -104,7 +110,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Respawned();
+        pstate.isAlive = true;
+        Input.ResetInputAxes();
+        health = maxHealth;
+        faceVerticalDir = "-";
+        CheckDirectionToFace(pstate.isFacingRight);
+        SetGravityScale(Data.gravityScale);
+        canDash = true;
+        changeHUD();
+        anim.Play("player_idle");
     }
 
     private void Update()
@@ -186,6 +200,9 @@ public class PlayerMovement : MonoBehaviour
             OnJumpUpInput();
         }
         SetFirepointAngle();    // Set the firing angle on vertical direction
+
+        anim.SetFloat("Horizontal", _moveInput.x);
+        anim.SetFloat("Vertical", _moveInput.y);
 
     }
 
@@ -316,15 +333,21 @@ public class PlayerMovement : MonoBehaviour
             WallJump(_lastWallJumpDir);
         }
         // Double jump
-        else if (unlocks.hasUnlockedDoubleJump && !IsGrounded() && CanDoubleJump() && Input.GetButtonDown("Jump") && !CanWallJump())
+        else if (unlocks.hasUnlockedDoubleJump && !IsGrounded() && CanDoubleJump() && Input.GetButtonDown("Jump"))
         {
-            SetJumpSettings();
-            airJumpCounter++;
-            Jump();
+            // To fix the issue regarding we have DBL jump ability but not wall ability. 
+            if (CanWallJump() && !unlocks.hasUnlockedWallJump)
+            {
+                return;
+            }
+            else if (!CanWallJump())
+            {
+                SetJumpSettings();
+                airJumpCounter++;
+                Jump();
+            }
+
         }
-
-
-
         anim.SetBool("Jumping", pstate.isJumping && RB.velocity.y > 0);
     }
 
@@ -338,6 +361,8 @@ public class PlayerMovement : MonoBehaviour
         {
             pstate.isSliding = false;
         }
+
+        anim.SetBool("Sliding", pstate.isSliding);
 
     }
 
@@ -810,12 +835,15 @@ public class PlayerMovement : MonoBehaviour
 
 
     /// <summary>
-    /// Checks if set box overlaps with ground
+    /// Checks if set box overlaps with ground OR switches
     /// </summary>
     /// <returns></returns>
     public bool IsGrounded()
     {
-        if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer))
+        if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer)
+        || Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, switchLayer)
+        || Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, plateLayer)
+        || Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, deathLayer))
         {
             return true;
         }
@@ -858,7 +886,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(int damage, Vector2 hitDirection, float hitForce)
     {
-        if (!pstate.isAlive || damage < 0)
+        if (!pstate.isAlive || damage < 0 || pstate.isInvinsible)
         {
             return;
         }
@@ -874,7 +902,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Player is not already invinsible
-        if (!pstate.isInvinsible)
+        if (!pstate.isInvinsible && pstate.isAlive)
         {
             KnockBack(hitDirection, hitForce);
             StartCoroutine(StartInvinsibleAnimation());
@@ -884,31 +912,52 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Death()
     {
         pstate.isAlive = false;
+        RB.velocity = Vector2.zero; // Stop knockback
         GameManager.instance.switchGameState(); // Pause the gameplay
         anim.SetTrigger("Death");            // Player death animation
         yield return new WaitForSeconds(timeBeforeDeathScreen);
-        StartCoroutine(AnimationManager.instance.activateDeathScreen()); // Show death screen
-
+        StartCoroutine(AnimationManager.instance.activateDeathScreen()); // Show death scree
     }
 
+    /// <summary>
+    /// Call this method, ONLY when player shall respawn. 
+    /// </summary>
     public void Respawned()
     {
-        pstate.isAlive = true;
         Input.ResetInputAxes();
-        health = maxHealth;     // Change to the health in the save system!
-        faceVerticalDir = "-";
+        if (GameManager.instance.playerTempMaxHealth != 0)
+        {
+            maxHealth = GameManager.instance.playerTempMaxHealth;     // When respawning, sets health
+            if (GameManager.instance.playerTempHealth != 0)
+            {
+                health = GameManager.instance.playerTempHealth;
+            }
+            else
+            {
+                health = 1; // Fixing bug so we don't respawn with 0 health
+            }
+
+        }
+        else
+        {
+            health = maxHealth;
+        }
+
+        SetFirepointAngle();
+        CheckDirectionToFace(pstate.isFacingRight);
         SetGravityScale(Data.gravityScale);
         canDash = true;
         changeHUD();
         anim.Play("player_idle");
-
+        pstate.isAlive = true;
+        PlayerDeathCallback();  // Notifiy listeners that player has died. 
     }
 
     IEnumerator StartInvinsibleAnimation()
     {
         pstate.isInvinsible = true;
         anim.SetTrigger("TakeDamage");
-        flashAnimation.gameObject.SetActive(true);
+        flashAnimation.gameObject.SetActive(true);      // Here insert weapon cooldown that is less than invis cooldown. 
         yield return new WaitForSeconds(invinsibleCooldown);
         flashAnimation.destroyFlash();
         flashAnimation.gameObject.SetActive(false);
@@ -943,6 +992,15 @@ public class PlayerMovement : MonoBehaviour
         if (onHealthChangedCallback != null)
         {
             onHealthChangedCallback.Invoke();
+        }
+    }
+
+    public void PlayerDeathCallback()
+    {
+
+        if (onPlayerDeathCallback != null)
+        {
+            onPlayerDeathCallback.Invoke();
         }
     }
 

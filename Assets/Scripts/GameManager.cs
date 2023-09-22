@@ -12,16 +12,10 @@ public class GameManager : MonoBehaviour
 
     // Saving these variables
     public Vector2 respawnPoint;
-
-    // List [] savepoint VectorPos. If have interacted then sprite is green, otherwise gray. 
-    // Vector2 latest_Savepoint_interacted that will set respawnpoint
-
-    // Player health and maxhealth
-    // 
-
-
-
-    // Enemies defeated? No, they shall return. 
+    public List<string> interactedSpawnPoints;
+    public List<string> collectedAbilities;
+    public int playerTempMaxHealth; // Max health of the player when restarting
+    public int playerTempHealth;    // Health of player when quitting
 
     // Canvases
     public HUD hud;
@@ -31,19 +25,25 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (GameManager.instance != null)
+        if (instance != null && instance != this)
         {
-            Destroy(player.gameObject);
-            Destroy(pauseMenu.gameObject);
-            Destroy(hud.gameObject);
+            // Destroy if another GM exists
             Destroy(gameObject);
             return;
         }
+        // Do this once
         instance = this;
+        DontDestroyOnLoad(gameObject);
+
         GameStateManager.instance = new GameStateManager(); // Can give problems in respawn
         GameStateManager.onGameStateChanged += onGameStateChanged;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+
+        collectedAbilities = new List<string>();
+        interactedSpawnPoints = new List<string>();
+
+
     }
 
     // Death screen methods
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     {
         GameStateManager.onGameStateChanged -= onGameStateChanged;
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     public void switchGameState()
@@ -86,6 +87,12 @@ public class GameManager : MonoBehaviour
         GameState newGameState = currGameState == GameState.Gameplay ? GameState.Paused : GameState.Gameplay;
         GameStateManager.instance.SetState(newGameState);
         GameStateManager.instance.currentGameState = newGameState;  //Were not included in unfreeze?
+
+    }
+
+    public void OnSceneUnloaded(Scene s)
+    {
+        // When one scene unloads
 
     }
 
@@ -104,9 +111,47 @@ public class GameManager : MonoBehaviour
         {
             instance.player.gameObject.SetActive(true);
             instance.hud.gameObject.SetActive(true);
+
+            SetCollectedData();
             instance.hud.UpdateHartsHUD();
+
             instance.player.transform.position = respawnPoint;
         }
+
+    }
+
+    public void SetCollectedData()
+    {
+        //For each respawnpoints
+        GameObject spawnPointHolder = GameObject.FindWithTag("SpawnPointHolder");   // Set this in inspector!
+        foreach (Transform spawnpointTransform in spawnPointHolder.transform)
+        {
+            GameObject rp = spawnpointTransform.gameObject;
+            if (interactedSpawnPoints.Contains(rp.name))                           // Names need to be different
+            {
+                rp.GetComponent<RespawnPoint>().SetInteracted(true);
+                print("true!");
+            }
+        }
+
+        // For each Ability
+        GameObject abilityHolder = GameObject.FindWithTag("AbilityHolder");   // Set this in inspector!
+        foreach (Transform abilityTransform in abilityHolder.transform)
+        {
+            GameObject ab = abilityTransform.gameObject;
+            if (collectedAbilities.Contains(ab.name))                           // Names need to be different
+            {
+                ab.GetComponent<Ability>().HasUnlocked();
+            }
+        }
+
+        // Set player health if have interacted with some spawnpoint
+        if (playerTempMaxHealth != 0)
+        {
+            player.maxHealth = playerTempMaxHealth;
+            player.health = playerTempHealth;
+        }
+
 
     }
 }

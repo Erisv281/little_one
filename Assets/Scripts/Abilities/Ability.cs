@@ -5,15 +5,11 @@ using UnityEngine;
 public class Ability : MonoBehaviour
 {
     public bool hasCollected;   // The ability has been picked up. 
+    [SerializeField] protected SpriteRenderer SR;
 
-    // Start is called before the first frame update
     protected virtual void Start()
     {
-        // If player has collect this ability, Destroy it. 
-        if (hasCollected)
-        {
-            Destroy(gameObject);
-        }
+        SR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,9 +17,7 @@ public class Ability : MonoBehaviour
     {
         if (col.CompareTag("player") && !hasCollected)
         {
-            hasCollected = true;
             UnlockAbility();
-            Destroy(gameObject);
         }
     }
 
@@ -32,7 +26,16 @@ public class Ability : MonoBehaviour
     /// </summary>
     protected virtual void UnlockAbility()
     {
-        // Placeholder
+        hasCollected = true;
+        if (!GameManager.instance.collectedAbilities.Contains(gameObject.name))
+        {
+            GameManager.instance.collectedAbilities.Add(gameObject.name);
+        }
+    }
+
+    public void HasUnlocked()
+    {
+        Destroy(gameObject);
     }
 
 

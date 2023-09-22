@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3692959651379477365}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   arrowDamage: 1
   RB: {fileID: 8870662117204523751}
   hitForce: 1
+  isLit: 0
+  fireArrowSprite: {fileID: -1057737202, guid: 0d164f4e72666a64588993e322631ff2, type: 3}
 --- !u!60 &-3692959651379477365
 PolygonCollider2D:
   m_ObjectHideFlags: 0

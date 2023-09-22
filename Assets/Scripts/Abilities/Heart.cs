@@ -10,11 +10,13 @@ public class Heart : Ability
     /// </summary>
     protected override void UnlockAbility()
     {
+        base.UnlockAbility();
         if (GameManager.instance.player.health < GameManager.instance.player.maxHealth)
         {
             GameManager.instance.player.health += 1;
             GameManager.instance.hud.UpdateHartsHUD();
         }
+        Destroy(gameObject);
     }
 
 }

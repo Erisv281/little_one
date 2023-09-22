@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityBow : Ability
+public class AbilityBow : Ability_Once
 {
 
     protected override void UnlockAbility()
     {
+        base.UnlockAbility();
         GameManager.instance.player.unlocks.hasUnlockedBow = true;
     }
+
 }

@@ -31,7 +31,7 @@ public class Walker : Enemy
         }
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    protected virtual void OnCollisionStay2D(Collision2D other)
     {
         if (other.transform.tag == "ground")
         {
@@ -55,10 +55,10 @@ public class Walker : Enemy
                 }
                 else if (IsState(EnemyStates.Idle))
                 {
-                    // If hitting the wall, start flipping
+                    // If hitting the walls, start flipping
                     UpdateLedgeCheck();
                     if (!Physics2D.Raycast(transform.position + ledgeCheckStart, Vector2.down, ledgeCheck.y, groundLayer)   // Ground check
-                    || Physics2D.Raycast(transform.position, wallCheckDir, ledgeCheck.x, groundLayer))       // Wall check
+                    || Physics2D.Raycast(transform.position, wallCheckDir, ledgeCheck.x, groundLayer)) // Wall check
                     {
                         ChangeState(EnemyStates.Flip);
                         StartCoroutine(FlipCooldown());
@@ -75,18 +75,15 @@ public class Walker : Enemy
                 }
             }
         }
-        else if (other.transform.tag == "enemy")
-        {
-            Turn(); // If the enemy is stuck within an enemy, then turn
-        }
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D other)
     {
-        // If hitting an enemy, turn
-        if (other.gameObject.CompareTag("enemy"))
+        UpdateLedgeCheck();
+        if (!isFlipping && Physics2D.Raycast(transform.position, wallCheckDir, 0, attackableLayer)
+            || Physics2D.Raycast(transform.position, wallCheckDir, 0, deathLayer))
         {
-            Turn();
+            Turn(); // If the enemy is stuck within another enemy or traps, then turn
         }
     }
 

@@ -9,9 +9,11 @@ public class BigHeart : Ability
     /// </summary>
     protected override void UnlockAbility()
     {
-        GameManager.instance.player.maxHealth++;
-        GameManager.instance.player.health += 1;
+        base.UnlockAbility();
+        GameManager.instance.player.maxHealth += 2;
+        GameManager.instance.player.health += 2;
         GameManager.instance.hud.UpdateHartsHUD();
-
+        Destroy(gameObject);
     }
+
 }
