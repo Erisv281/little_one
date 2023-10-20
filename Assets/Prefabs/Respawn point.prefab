@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3922944027112041586}
   - component: {fileID: 975737666336044847}
   - component: {fileID: 7547781499649764015}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Respawn point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -938666351
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1683100385, guid: 229dff328fea12748858606b2b7ae366, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

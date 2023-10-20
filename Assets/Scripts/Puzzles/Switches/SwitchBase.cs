@@ -9,9 +9,14 @@ public class SwitchBase : MonoBehaviour
 {
     [SerializeField] protected Sprite activatedSwitch;   // The switched switch sprite  
     [SerializeField] protected Sprite regularSwitch;   // The OG sprite  
+    protected bool isActivated;
     [SerializeField] protected SpriteRenderer SR;
     [SerializeField] protected List<SwitchTrigger> triggers;    // Has multiple triggers. Note: Assuming correclty set in inspector!
 
+
+    // Delegates
+    public delegate void OnSwitchHit();
+    [HideInInspector] public OnSwitchHit onSwitchHitCallback;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -25,6 +30,7 @@ public class SwitchBase : MonoBehaviour
     {
         // Reset sprite of switches
         SR.sprite = regularSwitch;
+        isActivated = false;
     }
 
     protected virtual void Awake()
@@ -39,7 +45,13 @@ public class SwitchBase : MonoBehaviour
             trigger.CallActivate(); // Activate the triggerers
         }
 
+        // Set sprite and audio
         SR.sprite = activatedSwitch;
+        isActivated = true;
+        AudioManager.instance.Play("Switch");
+
+        // Notify listeners
+        SwitchActivationCallback();
     }
 
     public void CallActivateSwitch()
@@ -56,5 +68,14 @@ public class SwitchBase : MonoBehaviour
     {
         GameStateManager.onGameStateChanged -= OnGameStateChanged;
         GameManager.instance.player.onPlayerDeathCallback -= PlayerDeath;
+    }
+
+    public void SwitchActivationCallback()
+    {
+        // Notify subscribers that the player has died. 
+        if (onSwitchHitCallback != null)
+        {
+            onSwitchHitCallback.Invoke();
+        }
     }
 }

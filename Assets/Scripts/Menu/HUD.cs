@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Represents the HUD meny which includes health, crones and key collection. 
+/// <summary>
+/// Represents the HUD meny which includes health, crones and key collection. 
+/// </summary>
 public class HUD : MonoBehaviour
 {
 
@@ -12,6 +14,7 @@ public class HUD : MonoBehaviour
     public Sprite fullHart;
     public Sprite halfFullHart;
     public Sprite emptyHart;
+    [SerializeField] private Vector3 maxScale = new Vector3(1.45f, 1.45f, 1); // How far the UI will scale
 
     private void Awake()
     {
@@ -20,8 +23,13 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.player.onHealthChangedCallback += UpdateHartsHUD;
+        UpdatePlayerCallback();
         UpdateHartsHUD();
+    }
+
+    public void UpdatePlayerCallback()
+    {
+        GameManager.instance.player.onHealthChangedCallback += UpdateHartsHUD;  // Change
     }
 
 
@@ -82,4 +90,53 @@ public class HUD : MonoBehaviour
         UpdateHarts();
     }
 
+
+    /// <summary>
+    /// Scale all hearts
+    /// </summary>
+    public void ScaleHearts(float animationDuration)
+    {
+        StartCoroutine(ScaleHeartsRoutine(animationDuration));
+    }
+
+    public IEnumerator ScaleHeartsRoutine(float animationDuration)
+    {
+        foreach (Image hart in harts)
+        {
+            StartCoroutine(ScaleHeart(hart.gameObject, animationDuration));
+            yield return new WaitForSeconds(animationDuration);
+        }
+    }
+
+
+
+    /// <summary>
+    /// Scale the heart up and down for each heart once. Call this function when calling increase maxharts. 
+    /// </summary>
+    public IEnumerator ScaleHeart(GameObject hart, float animationDuration)
+    {
+        // Scale up to max scale
+        float elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            hart.transform.localScale = Vector3.Lerp(Vector3.one, maxScale, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        hart.transform.localScale = maxScale; // Ensure it's exactly maxScale
+
+        // Pause briefly at max scale
+        yield return new WaitForSeconds(0); // Adjust the pause duration as needed
+
+        // Scale down to regular scale
+        elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            hart.transform.localScale = Vector3.Lerp(maxScale, Vector3.one, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        hart.transform.localScale = Vector3.one; // Ensure it's exactly Vector3.one
+
+    }
 }

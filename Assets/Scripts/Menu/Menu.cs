@@ -17,11 +17,18 @@ public class MainMenu : MonoBehaviour
 
     public IEnumerator FadeAndStartGame(string sceneToLoad)
     {
+        // Fading in
         fadeUI.FadeUIIn(fadeTime);
+
+        // Wait some time
         yield return new WaitForSeconds(fadeTime);
+
+        // Setting player object and respawn it
         GameManager.instance.player.gameObject.SetActive(true);
         GameManager.instance.player.transform.position = GameManager.instance.respawnPoint;
         GameManager.instance.player.Respawned();
+
+        // Finally, load the scene. 
         SceneManager.LoadScene(sceneToLoad);
     }
 

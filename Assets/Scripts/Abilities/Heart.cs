@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Collect this to increase slightly player health
+/// </summary>
 public class Heart : Ability
 {
 
+    private int healAmount = 1;
+
     /// <summary>
-    /// If player collidsen with hearts, increase health and update HUD. 
+    /// If player collides with hearts, increase health and update HUD. 
     /// </summary>
     protected override void UnlockAbility()
     {
         base.UnlockAbility();
-        if (GameManager.instance.player.health < GameManager.instance.player.maxHealth)
-        {
-            GameManager.instance.player.health += 1;
-            GameManager.instance.hud.UpdateHartsHUD();
-        }
+
+        // Increase health
+        GameManager.instance.player.Heal(healAmount);
+
+        // Destroy object
         Destroy(gameObject);
     }
 

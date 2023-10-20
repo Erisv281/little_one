@@ -60,11 +60,13 @@ public class Melee : MonoBehaviour
 
     void MeleeAttack()
     {
-        // Animation
+        // Animation and sounds
         anim.SetTrigger("Attack");
-        GameManager.instance.player.pstate.isAttackingMelee = true;
+        AudioManager.instance.Play("Melee");
+
 
         //Detect enemies within some circle radius
+        GameManager.instance.player.pstate.isAttackingMelee = true;
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         // Damage them

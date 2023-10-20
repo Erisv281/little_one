@@ -128,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCollected: 0
   SR: {fileID: 0}
+  particleDuration: 1
+  HeartParticles: {fileID: 5848306572545635572, guid: 581805146f1ea0947adb3bc3f2a99d43, type: 3}
 --- !u!60 &8227519019306151431
 PolygonCollider2D:
   m_ObjectHideFlags: 0

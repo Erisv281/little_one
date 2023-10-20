@@ -13,6 +13,10 @@ public class Walker : Enemy
     protected Vector3 ledgeCheckStart;  // Vector for the ledge start pos
     protected Vector2 wallCheckDir;     // Vector for wall checking direction
 
+    [SerializeField] protected Transform _frontWallCheckPoint;
+    [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+
+
     protected override void EnemyIdle()
     {
         float directionX = transform.localScale.x >= 0 ? speed : -speed;
@@ -77,15 +81,26 @@ public class Walker : Enemy
         }
     }
 
+    /// <summary>
+    /// // If the enemy is stuck within another enemy, traps and is not the player then turn. 
+    /// </summary>
+    /// <param name="other"></param>
     protected virtual void OnCollisionEnter2D(Collision2D other)
     {
-        UpdateLedgeCheck();
-        if (!isFlipping && Physics2D.Raycast(transform.position, wallCheckDir, 0, attackableLayer)
-            || Physics2D.Raycast(transform.position, wallCheckDir, 0, deathLayer))
+        if (other.collider.CompareTag("player"))
         {
-            Turn(); // If the enemy is stuck within another enemy or traps, then turn
+            return;
+        }
+
+        // Only turn once we collide with some attackable
+        UpdateLedgeCheck();
+        if (!isFlipping && Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, attackableLayer))
+        {
+            Turn();
         }
     }
+
+    // Charger collide with himself sp overlapbox.collider == charger. 
 
     private IEnumerator FlipCooldown()
     {
@@ -115,6 +130,15 @@ public class Walker : Enemy
     protected override void ChangeAnimation()
     {
         anim.SetBool("Walker_idle", IsState(EnemyStates.Idle));
+    }
+
+    protected void OnDrawGizmosSelected()
+    {
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawLine(transform.position, Vector2.down * ledgeCheck.y);
+
     }
 
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerStateList : MonoBehaviour
 {
     // Variables control the various actions the player can perform at any time.
+
+    public bool isMoving;
     public bool isJumping;
     public bool isDashing;
     public bool isRecoilingX;
@@ -17,5 +19,4 @@ public class PlayerStateList : MonoBehaviour
     public bool isAlive = true;
     public bool isAttackingMelee;
     public bool isAttackingBow;
-
 }

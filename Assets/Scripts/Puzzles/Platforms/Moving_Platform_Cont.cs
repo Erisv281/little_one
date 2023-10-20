@@ -12,6 +12,7 @@ public class Moving_Platform_Cont : SwitchTrigger
     [SerializeField] private float movingSpeed;
     private Vector3 startPoint;
     private Vector3 targetPoint;    // Which point we shall move to. 
+
     private bool isMoving;
 
     protected override void PlayerDeath()
@@ -30,10 +31,10 @@ public class Moving_Platform_Cont : SwitchTrigger
 
     protected override void Update()
     {
-        // Rotate to next position
+        // move to next position
         if (isMoving)
         {
-            // Rotate towards endpoint and check if within area. 
+            // Move towards endpoint and check if within area. 
             if (Vector3.Distance(transform.position, targetPoint) >= 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPoint, Time.deltaTime * movingSpeed);
@@ -45,6 +46,8 @@ public class Moving_Platform_Cont : SwitchTrigger
             }
 
         }
+
+
 
     }
 
@@ -68,5 +71,6 @@ public class Moving_Platform_Cont : SwitchTrigger
             isMoving = false;
         }
     }
+
 
 }

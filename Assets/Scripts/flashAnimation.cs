@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Make entities flashing between original color and red. 
+/// </summary>
 public class FlashAnimation : MonoBehaviour
 {
     [SerializeField] private float flashSpeed;

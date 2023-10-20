@@ -4,39 +4,53 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private int arrowDamage;
-    [SerializeField] private Rigidbody2D RB;
-    [SerializeField] private float hitForce;   // The knockback force
+    [SerializeField] protected float speed;
+    [SerializeField] protected int arrowDamage;
+    [SerializeField] protected Rigidbody2D RB;
+    [SerializeField] protected float hitForce;   // The knockback force
     public bool isLit;
     [SerializeField] private Sprite fireArrowSprite;
-    private SpriteRenderer SR;
+    protected SpriteRenderer SR;
 
-    private bool hasHitSomething;   // Fail safe, since arrow detect collisions twice appearently
+    protected Vector2 RBPausedVelocity;
+
+    protected bool hasHitSomething;   // Fail safe, since arrow detect collisions twice appearently
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         RB.velocity = transform.right * speed;
         SR = GetComponent<SpriteRenderer>();
     }
 
-    void Awake()
+    protected virtual void Awake()
     {
         GameStateManager.onGameStateChanged += OnGameStateChanged;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        // Fixing the bug where entities can take damage twice. 
         if (hasHitSomething)
         {
             return;
         }
 
-        // Return if the arrow is hitting the player
+        // Return if the arrow is hitting the player,...
         if (other.CompareTag("player"))
         {
-            return;
+            if (!isLit)
+            {
+                return;
+            }
+            //.., however firearrows hits the player!
+            else
+            {
+                PlayerMovement p = GameManager.instance.player;
+                p.TakeDamage(arrowDamage, (p.transform.position - transform.position).normalized, hitForce);
+                hasHitSomething = true;
+            }
+
         }
 
         // Enemies or Chargers will take damage
@@ -69,14 +83,34 @@ public class Arrow : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // GP
+
     protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
+        if (!enabled)
+        {
+            RBPausedVelocity = RB.velocity;
+            StopMovement();
+        }
+        else
+        {
+            RB.velocity = RBPausedVelocity;
+        }
     }
 
     protected void OnDestroy()
     {
         GameStateManager.onGameStateChanged -= OnGameStateChanged;
+    }
+
+    /// <summary>
+    /// Stops the movement of the arrow
+    /// </summary>
+    protected void StopMovement()
+    {
+        RB.velocity = Vector2.zero;
+        RB.Sleep();
     }
 
 }

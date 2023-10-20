@@ -30,6 +30,11 @@ public class Trap : MonoBehaviour
         {
             Attack();
         }
+        // Also attack enemimies
+        else if (other.CompareTag("enemy"))
+        {
+            other.GetComponent<Enemy>().EnemyHit(this.damage, (other.transform.position - transform.position).normalized, hitForce);
+        }
     }
 
     /// <summary>

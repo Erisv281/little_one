@@ -16,25 +16,31 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause") && SceneManager.GetActiveScene().name != "Start_Scene")
-        {   // Pressed Escape
+        // Pressed 'Esc' in not the start_scene and player is not in some cutscene
+        if (Input.GetButtonDown("Pause") && SceneManager.GetActiveScene().name != "Start_Scene" && !GameManager.instance.player.pstate.isEnteringCutscene)
+        {
             ChangePause();
         }
 
     }
 
 
+    /// <summary>
+    /// Toggles the pause canvas
+    /// </summary>
     public void ChangePause()
     {
-        Input.ResetInputAxes();     // Reset the input buffer
-        GameManager.instance.switchGameState(); // Note: Changes timescale.
+        Input.ResetInputAxes();
+
+        // Toggle pausing mode
+        GameManager.instance.switchGameState();
         isPaued = !isPaued;
         pauseMenu.SetActive(isPaued);
 
         if (isPaued)
         {
             GameManager.instance.pauseMenu.FadeUIIn(GameManager.instance.fadeTime);
-            GameManager.instance.player.RB.velocity = Vector2.zero; // Reset player movement
+            GameManager.instance.player.StopMovement();
         }
     }
 
@@ -48,10 +54,9 @@ public class Pause : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Start Scene")
         {
             Input.ResetInputAxes();     // Reset the input buffer
+            GameManager.instance.pauseMenu.FadeUIOut(GameManager.instance.fadeTime);    // Problem: Cannot do this
             ChangePause();
-            GameManager.instance.pauseMenu.FadeUIOut(GameManager.instance.fadeTime);
             SceneManager.LoadScene("Start_Scene");
-
         }
     }
 

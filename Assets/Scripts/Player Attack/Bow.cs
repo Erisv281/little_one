@@ -33,11 +33,12 @@ public class Bow : MonoBehaviour
                 Shoot();
                 nextAttackTime = Time.time;
             }
+            else
+            {
+                GameManager.instance.player.pstate.isAttackingBow = false;
+            }
         }
-        else
-        {
-            GameManager.instance.player.pstate.isAttackingBow = false;
-        }
+
 
     }
 
@@ -54,11 +55,12 @@ public class Bow : MonoBehaviour
 
     void Shoot()
     {
-        // Animation
+        // Animation and sounds
         anim.SetTrigger("BowAttack");
-        GameManager.instance.player.pstate.isAttackingBow = true;
+        AudioManager.instance.Play("Bow");
 
         // Bow shooting
+        GameManager.instance.player.pstate.isAttackingBow = true;
         Instantiate(arrow, firePoint.position, firePoint.rotation);
     }
 

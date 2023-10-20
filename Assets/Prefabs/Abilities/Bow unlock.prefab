@@ -194,3 +194,4 @@ MonoBehaviour:
   hasCollected: 0
   SR: {fileID: 0}
   collectAnimationDuration: 1
+  MainCamera: {fileID: 0}

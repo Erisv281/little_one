@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    protected bool isAlive;
+
 
     protected enum EnemyStates
     {
@@ -36,6 +38,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private FlashAnimation flashAnimation;
 
     protected Vector3 startPosition;
+    protected Vector2 RBPausedVelocity;
+
+    protected bool isActive;    // Whether the enemy is active i.e do idle screipt. 
 
 
     protected virtual void Awake()
@@ -48,6 +53,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        isAlive = true;
         startPosition = transform.position;
         health = maxHealth;
         RB = GetComponent<Rigidbody2D>();
@@ -89,7 +95,6 @@ public class Enemy : MonoBehaviour
         // If not recoiling then push the enemy back 
         if (!IsState(EnemyStates.Recoil))
         {
-            // Note: Spawn hit effect here
             RB.velocity = hitDirection * hitForce * recoilFactor;
             recoilTimer = Time.time;
             ChangeState(EnemyStates.Recoil);
@@ -104,7 +109,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(recoilDuration);
         flashAnimation.destroyFlash();
         flashAnimation.gameObject.SetActive(false);
-
     }
 
     /// <summary>
@@ -199,12 +203,21 @@ public class Enemy : MonoBehaviour
     protected virtual void EnemyDeath()
     {
         // Note: Spawn death effect here
-        StartCoroutine(DeathAnim());
+        if (isAlive)
+        {
+            isAlive = false;
+            StartCoroutine(DeathAnim());
+        }
+
     }
 
     protected virtual IEnumerator DeathAnim()
     {
-        anim.SetTrigger("Death");            // Play death animation for 0.5 seconds
+        // Animation and sound
+        anim.SetTrigger("Death");
+        AudioManager.instance.Play("Enemy_Death");
+
+        // Play death animation for 0.5 seconds
         yield return new WaitForSeconds(0.5f);
         Instantiate(hart, transform.position, transform.rotation);
         Destroy(gameObject);
@@ -242,12 +255,45 @@ public class Enemy : MonoBehaviour
 
     }
 
+    public void SwitchSR()
+    {
+        if (!sr.enabled)
+        {
+            sr.enabled = true;
+            isActive = true;
+        }
+        else
+        {
+            sr.enabled = false;
+            isActive = false;
+        }
+    }
+
+
     protected void OnGameStateChanged(GameState gameState)
     {
         enabled = gameState == GameState.Gameplay;
+        if (!enabled)
+        {
+            RBPausedVelocity = RB.velocity;
+            StopMovement();
+        }
+        else
+        {
+            RB.velocity = RBPausedVelocity;
+        }
     }
 
-    protected void OnDestroy()
+    /// <summary>
+    /// Stops the movement of the arrow
+    /// </summary>
+    protected void StopMovement()
+    {
+        RB.velocity = Vector2.zero;
+        RB.Sleep();
+    }
+
+    protected virtual void OnDestroy()
     {
         GameStateManager.onGameStateChanged -= OnGameStateChanged;
         GameManager.instance.player.onPlayerDeathCallback -= PlayerDeath;

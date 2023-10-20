@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6455522579565837771}
   - component: {fileID: 6275011973611588567}
   - component: {fileID: 3275892072233932987}
-  - component: {fileID: 5043039743938133302}
-  - component: {fileID: 1333487049446387139}
+  - component: {fileID: 1884064705571868529}
+  - component: {fileID: 1853470851356075302}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &5043039743938133302
-PolygonCollider2D:
+--- !u!61 &1884064705571868529
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,7 +123,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 13692233445423137}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 744f25ce13a137044a1b1a784b30edb1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -156,15 +156,11 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.7586207, y: 2.7586207}
-      - {x: -2.7586207, y: -2.7586207}
-      - {x: 2.7586207, y: -2.7586207}
-      - {x: 2.7586207, y: 2.7586207}
-  m_UseDelaunayMesh: 0
---- !u!60 &1333487049446387139
-PolygonCollider2D:
+  serializedVersion: 2
+  m_Size: {x: 5.3333335, y: 5.3333335}
+  m_EdgeRadius: 0
+--- !u!61 &1853470851356075302
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -205,13 +201,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.7586207, y: 2.7586207}
-      - {x: -2.7586207, y: -2.7586207}
-      - {x: 2.7586207, y: -2.7586207}
-      - {x: 2.7586207, y: 2.7586207}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 5.3333335, y: 5.3333335}
+  m_EdgeRadius: 0
 --- !u!1 &7192411361029541113
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +216,7 @@ GameObject:
   - component: {fileID: 3071099451506551936}
   m_Layer: 6
   m_Name: Continous Movingplatform
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,3 +253,4 @@ MonoBehaviour:
   activatedSprite: {fileID: 21300000, guid: 77bbd37bb32f48a4a83315eec3e8b2d5, type: 3}
   endPoint: {x: 0, y: 0, z: 0}
   movingSpeed: 1
+  playerHolder: {fileID: 0}

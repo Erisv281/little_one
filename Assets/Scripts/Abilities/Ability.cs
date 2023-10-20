@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is for Abilities, things that the player can pickup such as waljump, hearts, ..
+/// </summary>
 public class Ability : MonoBehaviour
 {
-    public bool hasCollected;   // The ability has been picked up. 
+    public bool hasCollected;   // If the ability has been picked up. 
     [SerializeField] protected SpriteRenderer SR;
 
     protected virtual void Start()
@@ -12,7 +15,6 @@ public class Ability : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("player") && !hasCollected)
@@ -27,9 +29,11 @@ public class Ability : MonoBehaviour
     protected virtual void UnlockAbility()
     {
         hasCollected = true;
-        if (!GameManager.instance.collectedAbilities.Contains(gameObject.name))
+
+        // Put in collection of unlocks. 
+        if (!GameManager.instance.ContainAbility(gameObject.name))
         {
-            GameManager.instance.collectedAbilities.Add(gameObject.name);
+            GameManager.instance.AddAbility(gameObject.name);
         }
     }
 
